@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-    return view('test.test', ['name' => 'Developer']);
+    return view('test/test', ['name' => 'Developer']);
 });
 
 Route::get('/calc', function(){
-    return view('calc.indexcalc');
+    return view('calc/index');
 });
 
-Route::get('/result.php', function(){
-    return view('calc.resultcalc');
+Route::post('calc/result.php', function(){
+    return view('calc/result');
 });
