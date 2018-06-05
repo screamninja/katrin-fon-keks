@@ -11,18 +11,20 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function(){
+Route::get('/test', function () {
     return view('test/test', ['name' => 'Developer']);
 });
 
-Route::get('/calc', function(){
+Route::get('/calc', function () {
     return view('calc/index');
 });
 
-Route::post('calc/result.php', function(){
+Route::post('calc/result.php', function () {
     return view('calc/result');
 });
