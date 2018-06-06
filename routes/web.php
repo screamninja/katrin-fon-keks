@@ -28,3 +28,8 @@ Route::get('/calc', function () {
 Route::post('calc/result.php', function () {
     return view('calc/result');
 });
+
+//
+
+
+Route::get('mycalc','MyCalcController@index');
