@@ -29,6 +29,11 @@ Route::post('calc/result.php', function () {
     return view('calc/result');
 });
 
+
+Route::get('/katrin', function () {
+    return view('katrin/index');
+});
+
 //
 
 
