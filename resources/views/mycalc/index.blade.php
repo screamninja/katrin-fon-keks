@@ -16,8 +16,6 @@
     <p></p>
     <button type="submit" name="answer" id="answer" value="answer">Calculate</button>
 </form>
-{{ if $res }}
 <p>The answer is: {{ $res }}</p>
-{{ /if }}
 </body>
 </html>
