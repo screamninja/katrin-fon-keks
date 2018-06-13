@@ -254,7 +254,7 @@ h3 {
   color: #31415C;
 }
 .top-section {
-  background-image: url(//img/header-bg.jpg);
+  background-image: url(/img/header-bg.jpg);
   background-size: cover;
   background-position: center; }
 
