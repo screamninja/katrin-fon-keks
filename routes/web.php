@@ -13,28 +13,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test', function () {
     return view('test/test', ['name' => 'Developer']);
 });
 
-Route::get('/calc', function () {
-    return view('calc/index');
-});
-
-Route::post('calc/result.php', function () {
-    return view('calc/result');
-});
-
-
-Route::get('/katrin', function () {
-    return view('katrin/index');
-});
-
-//
-
-
 Route::get('mycalc','MyCalcController@index');
+
+Route::get('/', 'PagesController@index');
+
+Route::get('/contact', 'PagesController@contact');
