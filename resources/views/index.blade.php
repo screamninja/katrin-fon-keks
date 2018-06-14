@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
-    <title>Mstore</title>
+    <title>Катрин фон Кекс</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/fonts/stylesheet.css">
@@ -19,13 +19,14 @@
 			<div class="container">
 				<div class="header-top-row-wrapper">
 					<div class="header-top-row-column">
-						<span class="user-phone">(+84).898.058.000</span>
-						<span class="user-mail">min101092@gmail.com</span>
+						<span class="user-phone">+7(905)295-05-22</span> <!-- больше размер и выделить. не вульгарно, но что бы было заметно-->
+						<span class="user-mail">katrinfonkeks@gmail.com</span> <!-- как и телефон -->
 					</div>
+					<!-- оставим на потом
 					<div class="header-top-row-column">
 						<span class="lang">Language: <strong>ENG</strong></span>
 						<span class="currency">Currency: <strong>USD</strong></span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -36,16 +37,20 @@
 				<span class="hide-menu-line line-bottom"></span>
 			</div>
 			<a href="#" class="header-logo">
-				<img src="/img/header-logo.png" alt="">
+				<!-- <img src="/img/header-logo.png" alt=""> потом будет ЛОГО-->
+				<div>Катрин фон Кекс</div>
 			</a>
 			<nav class="header-nav">
 				<ul class="header-menu">
-					<li><a class="header-link" href="#">Home</a></li>
-					<li><a class="header-link" href="#">Men</a></li>
-					<li><a class="header-link" href="#">Women</a></li>
-					<li><a class="header-link" href="#">Accessories</a></li>
-					<li><a class="header-link" href="#">Lookbook</a></li>
-					<li><a class="header-link" href="#">Contact</a></li>
+					<li><a class="header-link" href="/">Главная</a></li> <!-- лучше заменить на иконку в виде дома-->
+					<li><a class="header-link" href="#">Акции</a></li> <!-- выделить, например красный фон белые буквы -->
+					<li><a class="header-link" href="#">Торты</a></li>
+					<li><a class="header-link" href="#">Капкейки</a></li>
+					<li><a class="header-link" href="#">Десерты</a></li>
+					<li><a class="header-link" href="#">Начинки</a></li>
+					<li><a class="header-link" href="#">Портфолио</a></li>
+					<li><a class="header-link" href="#">Заказать</a></li> <!-- тоже выделить -->
+					<li><a class="header-link" href="#">О нас</a></li>
 				</ul>
 			</nav>
 			<div class="header-icons">
@@ -53,27 +58,28 @@
 					<input type="text" class="search">
 					<input type="submit" class="search-submit" value="">
 				</form>
+			<!-- Пока не будет учёток и корзины
 				<a href="#" class="link-button profile"></a>
 				<a href="#" class="link-button header-favorites"></a>
 				<ul class="favorite-items"></ul>
 				<a href="#" class="link-button header-basket"></a>
 				<ul class="basket-items"></ul>
 				<span class="header-basket-value">$0.00</span>
-			</div>
+			</div> -->
 		</div>
-		
 	</header>
 
 	<div class="top-section">
 		<div class="top-section-wrapper">
 			<div class="top-section-text">
-				<p>We make it easy to exprience creativity</p>
-				<p class="large-text">Stylish <br> new <br> design</p>
-				<p class="light-text">Order online and have your products delivered to your closest store for free...</p>
-				<a href="#" class="main-btn">Shopping now <span></span></a>
+				<p>для любимых, для друзей, для колег, для себя и своих близких...</p>
+				<p class="large-text">Самые <br> сладкие <br> подарки</p>
+				<p class="light-text">Индивидуальный подход к каждому заказу</p>
+				<a href="#" class="main-btn">Подробнее<span></span></a>
 			</div>
 		</div>
 	</div>
+	<!-- пока без учёток
 	<div class="login-popup">
 		<div class="popup-close-button">
 			<span></span>
@@ -86,7 +92,7 @@
 			<input type="submit" class="login-submit" value="Sign In">
 		</form>
 		<a href="#" class="forgot-password">Forgot your password?</a>
-	</div>
+	</div> -->
 <!-- Advantages section -->
 	<div class="advantages">
 		<div class="container">
@@ -94,29 +100,29 @@
 				<div class="advantages-item">
 					<img src="/img/svg/advantages/shipping.svg" width="70" height="35" alt="">
 					<div class="advantages-column">
-						<p class="advantages-bold-text">Free Shipping</p>
-						<p class="advantages-light-text">Free shipping for all US order</p>
+						<p class="advantages-bold-text">Бесплатная доставка</p>
+						<p class="advantages-light-text">при заказе от 1000 &#x20bd;</p>
 					</div>
 				</div>
 				<div class="advantages-item">
 					<img src="/img/svg/advantages/support.svg" width="70" height="35" alt="">
 					<div class="adbantages-column">
-						<p class="advantages-bold-text">Support 24/7</p>
-						<p class="advantages-light-text">We support 24 hours a day</p>
+						<p class="advantages-bold-text">Консультация</p>
+						<p class="advantages-light-text">поможем с выбором и ответим на все ваши вопросы</p>
 					</div>
 				</div>
 				<div class="advantages-item">
 					<img src="/img/svg/advantages/return.svg" width="70" height="35" alt="">
 					<div class="adbantages-column">
-						<p class="advantages-bold-text">30 Day Return</p>
-						<p class="advantages-light-text">You have 30 days to return</p>
+						<p class="advantages-bold-text">Приём заказов 24/7</p>
+						<p class="advantages-light-text">обработка не позднее 1 суток</p>
 					</div>
 				</div>
 				<div class="advantages-item">
 					<img src="/img/svg/advantages/payment.svg" width="70" height="35" alt="">
 					<div class="adbantages-column">
-						<p class="advantages-bold-text">Payment 100% secured</p>
-						<p class="advantages-light-text">Payment 100% secured</p>
+						<p class="advantages-bold-text">Оплата</p>
+						<p class="advantages-light-text">Наличными или банковской картой</p>
 					</div>
 				</div>
 			</div>
@@ -129,20 +135,20 @@
 			<div class="banners-wrapper">
 				<div class="banners-item banners-boy">
 					<div class="banners-item-text">
-						<p class="banners-p">New Arrivals</p>
-						<p class="banners-main-p">Shirt for boy's</p>
-						<span class="banners-price">$99.00</span>
-						<p class="banners-info">Refresh your wardrobe with a piece from our gorgeousready-to-wear collection, featuring beautifully crafted coats, dresses, jackets, sweaters, skirts, tops and trousers. Whether you’re searching for a special occasion...</p>
-						<a href="" class="main-btn">Shopping now <span></span></a>
+						<p class="banners-p">Лучшее предложение</p>
+						<p class="banners-main-p">Набор капкейков</p>
+						<span class="banners-price">490 &#x20bd;</span>
+						<p class="banners-info">Набор из 6 капкейков: ванильные и шоколадные (по 3 шт.). Украшенные Вашем посланием из темного шоколада.</p>
+						<a href="" class="main-btn">Заказать сейчас<span></span></a>
 					</div>
 				</div>
 				<div class="banners-item banners-girl">
 					<div class="banners-item-text">
-						<p class="banners-p">New Arrivals</p>
-						<p class="banners-main-p">Shirt for girl's</p>
-						<span class="banners-price">$99.00</span>
-						<p class="banners-info">Refresh your wardrobe with a piece from our gorgeousready-to-wear collection, featuring beautifully crafted coats, dresses, jackets, sweaters, skirts, tops and trousers. Whether you’re searching for a special occasion...</p>
-						<a href="" class="main-btn">Shopping now <span></span></a>
+						<p class="banners-p">Лидер продаж</p>
+						<p class="banners-main-p">Торт "Красный бархат"</p>
+						<span class="banners-price">1490 &#x20bd;</span>
+						<p class="banners-info">Яркий и броский внутри. Легкий и сливочный. Идеальный подарок...</p>
+						<a href="" class="main-btn">Заказать сейчас<span></span></a>
 					</div>
 				</div>
 			</div>
@@ -153,10 +159,10 @@
 	<div class="container">
 		<div class="banner">
 			<div class="banner-text">
-				<p class="banner-top-p">New Item's</p>
-				<p class="banner-large-text">Shoes Collection</p>
-				<p class="banner-info">We are delighted to reveal our campaign for the Autumn/Winter 2017 collection, styled by fashion icon Caroline Issa and shot by esteemed photographer www.minsoi.com...</p>
-				<a href="#" class="main-btn">Shopping now<span></span></a>
+				<p class="banner-top-p">Новинка</p>
+				<p class="banner-large-text">Торт "Шпинат и малина"</p>
+				<p class="banner-info">Описание</p>
+				<a href="#" class="main-btn">Заказать сейчас<span></span></a>
 			</div>
 		</div>
 	</div>
@@ -166,8 +172,8 @@
 		<div class="container">
 			<div class="products-wrapper">
 			<div class="text-row">
-				<h2>Feature Product</h2>
-				<a href="#" class="products-link">All product</a>
+				<h2>Популярные заказы</h2>
+				<a href="#" class="products-link">Посмотреть все</a>
 			</div>
 			<div class="items-row">
 
@@ -420,9 +426,9 @@
 		<div class="info">
 			<div class="info-item">
 				<div class="info-item-text-wrapper">
-					<p class="info-item-top-p">We love mstore</p>
-					<p class="info-item-text">A professional-looking tote for your everyday needs! This Wilsons Leather tote has a canvas look with genuine leather trim and a structured silhouette. Its shiny gold-tone hardware and two-tone design give it extra fashionable flair. </p>
-					<a href="#" class="main-btn">Discover<span></span></a>
+					<p class="info-item-top-p">Карта сладкой лояльности</p>
+					<br class="info-item-text">Заказывайте на сайте по эксклюзивным ценам</br>и получайти скидки при придъявлении.</p>
+					<a href="#" class="main-btn">Подробнее<span></span></a>
 				</div>
 			</div>
 			<div class="info-item">
@@ -435,8 +441,8 @@
 		<div class="best-products">
 			<div class="products-wrapper">
 				<div class="text-row">
-					<h2>Best Sellers Product</h2>
-					<a href="#" class="products-link">All product</a>
+					<h2>Бестселлеры</h2>
+					<a href="#" class="products-link">Посмотреть все</a>
 				</div>
 				<div class="items-row">
 
@@ -531,7 +537,7 @@
 					<a href="#" class="best-product-banner-link">
 						<img src="/img/best-products/best.jpg" alt="">
 						<div class="best-products-banner-text">
-							<p>Summer Sale</p>
+							<p>Скидки месяца</p>
 							<span>20%</span>
 						</div>
 					</a>
@@ -544,7 +550,7 @@
 	<!-- Blog section -->
 	<div class="container">
 		<section class="blog">
-			<h2>Blog Post's</h2>
+			<h2>Наши новости</h2>
 			<div class="blog-items-wrapper">
 				<div class="blog-item">
 					<img src="/img/blog/1.jpg" alt="">
@@ -554,7 +560,7 @@
 						<a href="#" class="blog-item-comment">2 comment</a>
 					</div>
 					<p class="blog-item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,...</p>
-					<a href="#" class="main-btn">Read More<span></span></a>
+					<a href="#" class="main-btn">Читать дальше<span></span></a>
 				</div>
 				<div class="blog-item">
 					<img src="/img/blog/2.jpg" alt="">
@@ -564,7 +570,7 @@
 						<a href="#" class="blog-item-comment">0 comment</a>
 					</div>
 					<p class="blog-item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,...</p>
-					<a href="#" class="main-btn">Read More<span></span></a>
+					<a href="#" class="main-btn">Читать дальше<span></span></a>
 				</div>
 				<div class="blog-item">
 					<img src="/img/blog/3.jpg" alt="">
@@ -574,7 +580,7 @@
 						<a href="#" class="blog-item-comment">2 comment</a>
 					</div>
 					<p class="blog-item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,...</p>
-					<a href="#" class="main-btn">Read More<span></span></a>
+					<a href="#" class="main-btn">Читать дальше<span></span></a>
 				</div>
 			</div>
 		</section>
@@ -584,15 +590,15 @@
 		<div class="container">
 			<div class="contact-wrapper">
 				<div class="contact-column">
-					<p class="contact-main-text">Join our email</p>
-					<p class="contact-text">We only send emails once a month and only about good things</p>
+					<p class="contact-main-text">Узнавайте о наших акциях и скидках первыми</p>
+					<p class="contact-text">Подпишитесь на рассылку и мы отправим вам купон на 50 &#x20bd;</p>
 				</div>
 				<form action="url" class="contact-form contact-column">
 					<div class="contact-form-item">
-						<input type="email" placeholder="Your email..." class="contact-email">
+						<input type="email" placeholder="Ваш email..." class="contact-email">
 					</div>
 					<div class="contact-form-item">
-						<input type="submit" class="contact-submit" value="submit">
+						<input type="submit" class="contact-submit" value="Отправить">
 					</div>
 				</form>
 			</div>
@@ -604,46 +610,49 @@
 			<div class="page-footer-wrapper">
 				<div class="footer-column">
 					<a href="#" class="footer-logo">
-						<img src="/img/footer-logo.png" alt="">
+						<!-- <img src="/img/footer-logo.png" alt=""> потом будет ЛОГО -->
+						<div>Катрин фон Кекс</div>
 					</a>
 					<p class="footer-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 					</p>
 					<div class="footer-contacts">
-						<p class="footer-contact-line">Adress <span>Hanoi,Vietnamese.</span></p>
-						<p class="footer-contact-line">Phone <span>(+084) 898.058.000</span></p>
-						<p class="footer-contact-line">Mail <span>min101092@gmail.com</span></p>
+						<!-- <p class="footer-contact-line">Adress <span>Hanoi,Vietnamese.</span></p> -->
+						<p class="footer-contact-line">Телефон <span>+7(905)295-05-22</span></p>
+						<p class="footer-contact-line">Mail <span>katrinfonkeks@gmail.com</span></p>
 					</div>
 					<ul class="footer-social">
-						<li><a href="#" class="footer-icon icon-facebook"></a></li>
-						<li><a href="#" class="footer-icon icon-twitter"></a></li>
+						<li><a href="#" class="footer-icon icon-facebook"></a></li> <!-- вместо fb нужен вк-->
+						<!-- <li><a href="#" class="footer-icon icon-twitter"></a></li> не нужен -->
 						<li><a href="#" class="footer-icon icon-instagram"></a></li>
 						<li><a href="#" class="footer-icon icon-youtube"></a></li>
-						<li><a href="#" class="footer-icon icon-google"></a></li>
-						<li><a href="#" class="footer-icon icon-behance"></a></li>
+						<!-- <li><a href="#" class="footer-icon icon-google"></a></li> не нужен -->
+						<!-- <li><a href="#" class="footer-icon icon-behance"></a></li> не нужен -->
 					</ul>
 				</div>
 				<div class="footer-column">
-					<p class="footer-top-p">Informations</p>
+					<p class="footer-top-p">Информация</p>
 					<div class="footer-column-wrapper">
 						<div class="footer-column-item">
 							<ul class="footer-column-links">
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Copyright</a></li>
-								<li><a href="#">Find Your Country</a></li>
-								<li><a href="#">Site map</a></li>
+								<li><a href="#">Как заказать</a></li>
+								<li><a href="#">Оплата и доставка</a></li>
+								<li><a href="#">Карта лояльности</a></li>
+								<li><a href="#">Отзывы</a></li>
+								<li><a href="#">Контакты</a></li>
 							</ul>
+							<!-- пока достаточно одного
 							<ul class="footer-column-links">
 								<li><a href="#">Odering info</a></li>
 								<li><a href="#">Contacts</a></li>
 								<li><a href="#">Return info</a></li>
 								<li><a href="#">Warranty</a></li>
 								<li><a href="#">Product Manual</a></li>
-							</ul>
+							</ul> -->
 						</div>
+						<!-- пока карта не нужна
 						<div class="footer-column-item">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7447.6699632548825!2d105.83236099417216!3d21.039287807532958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab06239058cb%3A0x1f9cc8fb65cd3e30!2zVGjhu6V5IEtodcOqLCDQotGN0LnRhdC-LCDQpdCw0L3QvtC5LCDQktGM0LXRgtC90LDQvA!5e0!3m2!1sru!2sru!4v1520937428445" style="border:0" allowfullscreen class="footer-map"></iframe>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
