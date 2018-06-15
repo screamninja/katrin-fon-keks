@@ -70,7 +70,7 @@ h3 {
   font-size: 18px;
   letter-spacing: 0.5px;
   border: 1px solid #868686;
-  outline-color: #31353D;
+  outline-color: #FCD4A1;
   border-radius: 5px;
 }
 .login-submit {
@@ -80,7 +80,7 @@ h3 {
 }
 .login-submit:hover,
 .login-submit:focus {
-  background-color: #31353D;
+  background-color: #FCD4A1;
 }
 .login-form input::-webkit-input-placeholder {
     font-family:"Roboto", sans-serif ;
@@ -96,8 +96,8 @@ h3 {
     color: #000; }
 
 .header-top-row {
-  background-color: #31353d;
-  color: #d7d7d7;
+  background-color: #FCD4A1;
+  color: #A97636;
   font-weight: 300;
   font-size: 10px;
   padding-top: 15px;
@@ -120,14 +120,16 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+  .header-top-row-column span {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
   .header-top-row-column span:first-child {
     padding-right: 5px;
-    border-right: 2px solid #fff; }
+    border-right: 2px solid #A97636; }
   .header-top-row-column span:last-child {
     padding-left: 3px; }
-  .header-top-row-column strong {
-    color: #fff;
-    padding: 0 5px; }
   .header-top-row-column .user-mail {
     text-transform: lowercase; }
 
@@ -149,8 +151,6 @@ h3 {
   margin: 0 auto; }
 
 .header-nav {
-  max-width: 540px;
-  width: 100%;
   margin: 0 5px;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
@@ -163,23 +163,58 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%; }
+  -ms-align-items: center;
+  align-items: center; }
   .header-menu li {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
-
+.header-link-icon {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  fill: #A97636;
+  stroke: #A97636;
+  transition: 0.3s ease;
+}
 .header-link {
+  position: relative;
+  line-height: 65px;
   font-weight: 300;
   font-size: 14px;
-  line-height: 65px;
-  color: #464646;
+  color: #A97636;
   display: block;
   text-align: center;
-  padding: 0 5px; }
+  padding: 0 10px;
+  transition: 0.3s ease; }
   .header-link:hover {
-    background-color: #31353d;
+    background-color: #FCD4A1;
     color: #fff; }
+  .header-link:hover span {
+    top: 2px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+  }
+  .header-link:hover .header-link-icon {
+    fill: #fff;
+    stroke: #fff;
+  }
+.link-special span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  top: 5px;
+  right: 10px;
+  transition: 0.3s ease;
+}
 .link-button {
   display: block;
   width: 15px;
@@ -211,7 +246,7 @@ h3 {
   background-color: #fff;
   transition: 0.3s ease;
   opacity: 0;
-  border: 3px solid #31353D;
+  border: 3px solid #FCD4A1;
   border-radius: 5px;
 }
 .basket-items-show {
@@ -235,7 +270,7 @@ h3 {
   background-color: #fff;
   transition: 0.3s ease;
   opacity: 0;
-  border: 3px solid #31353D;
+  border: 3px solid #FCD4A1;
   border-radius: 5px;
 }
 .favorite-items li {
@@ -254,9 +289,7 @@ h3 {
   color: #31415C;
 }
 .top-section {
-  background-image: url(/img/header-bg.jpg);
-  background-size: cover;
-  background-position: center; }
+ background-color: #A97636; }
 
 .top-section-wrapper {
   position: relative;
@@ -270,7 +303,7 @@ h3 {
 .top-section-text {
   max-width: 470px;
   width: 100%;
-  color: #31415c; }
+  color: #FFE6C6; }
   .top-section-text p:first-child {
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
@@ -357,12 +390,7 @@ h2 {
   padding: 30px 0; }
 
 .advantages-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 0 30px;
   width: 25%; }
 
 .advantages-bold-text {
@@ -387,17 +415,37 @@ h2 {
   margin-bottom: 30px; }
 
 .banners-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  position: relative;
+  background-color: #FFE6C6;
   display: flex;
+  flex-direction: column;
   max-width: 570px;
   width: 100%;
-  height: 400px;
+  height: 300px;
   padding: 10px;
-  padding-top: 70px; }
+  padding-top: 40px; }
   .banners-item p {
     font-family: "Open Sans", sans-serif; }
-
+.banners-item-left {
+  text-align: right;
+   -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+.banners-item-left .banners-btn {
+  right: 10px;
+}
+.banners-item-right {
+  text-align: left;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+.banners-item-right .banners-btn {
+  left: 10px;
+}
+.banners-item-text {
+  max-width: 450px;
+  width: 100%;
+}
 .banners-main-p {
   font-size: 30px;
   font-weight: 800;
@@ -406,41 +454,6 @@ h2 {
   line-height: 30px;
   margin-top: 0;
   margin-bottom: 15px; }
-
-.banners-girl {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  background-image: url(/img/girl.jpg);
-  background-size: cover;
-  background-position: 50%; }
-  .banners-girl .banners-p {
-    color: #00b8b8; }
-  .banners-girl .banners-price {
-    color: #00b8b8; }
-  .banners-girl .banners-info {
-    padding-right: 65px; }
-
-.banners-boy {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  background-image: url(/img/boy.jpg);
-  background-size: cover;
-  background-position: 50%;
-  text-align: right;
-  margin-right: 30px; }
-  .banners-boy .banners-p {
-    color: #ff0036; }
-  .banners-boy .banners-price {
-    color: #ff0036; }
-  .banners-boy .banners-info {
-    padding-left: 65px; }
-
-.banners-item-text {
-  max-width: 270px;
-  width: 100%;
-  margin: 0; }
 
 .banners-p {
   font-weight: 700;
@@ -455,15 +468,12 @@ h2 {
   font-weight: 700;
   display: inline-block;
   margin-bottom: 20px; }
+.banners-btn {
+  position: absolute;
+  bottom: 10px;
+}
 
-.banners-info {
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 1px;
-  font-weight: 300;
-  color: #636363;
-  margin: 0;
-  margin-bottom: 40px; }
+
 
 .banner {
   width: 100%;
@@ -803,7 +813,7 @@ h2 {
   .footer-column:first-child {
     max-width: 370px;
     width: 100%;
-    background-color: #31353d;
+    background-color: #FCD4A1;
     padding-right: 40px; }
   .footer-column:last-child {
     width: 100%; }
