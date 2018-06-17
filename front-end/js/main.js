@@ -2,7 +2,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	var cakeIcon = document.querySelector('.header-cake-icon span');
 	var headerRow = document.querySelector('.header-row');
 	var header = document.querySelector('.page-header');
+	var headerDropDownLink = document.querySelector('.header-dropdown');
+	var headerDropDownMenu = document.querySelector('.header-dropdown-menu-wrapper');
 
+	headerDropDownLink.addEventListener('mouseover', function() {
+		headerDropDownMenu.style.opacity = 1;
+		headerDropDownMenu.style.visibility = 'visible';
+		this.style.backgroundColor = '#7507C9';
+		this.children[0].style.color = '#fff';
+	})
+	headerDropDownLink.addEventListener('mouseout', function() {
+		headerDropDownMenu.style.opacity = 0;
+		headerDropDownMenu.style.visibility = 'hidden';
+		this.style.backgroundColor = '#fff';
+		this.children[0].style.color = '#7507C9';
+	})
 	function getRandomArbitrary(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
@@ -19,5 +33,3 @@ document.addEventListener("DOMContentLoaded", function() {
 	};
 	cakeIcon.innerHTML = `<svg><use xlink:href="#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
 });
-
-
