@@ -4,18 +4,23 @@ document.addEventListener("DOMContentLoaded", function() {
 	var header = document.querySelector('.page-header');
 	var headerDropDownLink = document.querySelector('.header-dropdown');
 	var headerDropDownMenu = document.querySelector('.header-dropdown-menu-wrapper');
+	var headerArrow = document.querySelector('.header-dropdown-icon');
 
 	headerDropDownLink.addEventListener('mouseover', function() {
 		headerDropDownMenu.style.opacity = 1;
 		headerDropDownMenu.style.visibility = 'visible';
 		this.style.backgroundColor = '#7507C9';
 		this.children[0].style.color = '#fff';
+		headerArrow.style.transform = 'rotate(180deg)';
+		headerArrow.style.borderTopColor = '#fff';
 	})
 	headerDropDownLink.addEventListener('mouseout', function() {
 		headerDropDownMenu.style.opacity = 0;
 		headerDropDownMenu.style.visibility = 'hidden';
 		this.style.backgroundColor = '#fff';
 		this.children[0].style.color = '#7507C9';
+		headerArrow.style.transform = 'rotate(0)';
+		headerArrow.style.borderTopColor = '#7507C9';
 	})
 	function getRandomArbitrary(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
