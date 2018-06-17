@@ -188,7 +188,7 @@ h3 {
             flex-grow: 1; }
 .header-link-icon {
   width: 35px;
-  height: 35px;
+  height: 40px;
   vertical-align: middle;
   fill: #7507C9;
   stroke: #7507C9;
@@ -212,6 +212,13 @@ h3 {
     fill: #fff;
     stroke: #fff;
   }
+.header-link-special {
+  background-color: red;
+  color: #fff;
+}
+.header-link-bold {
+  font-weight: 800;
+}
 .header-cake-icon span {
   display: block;
   position: absolute;
