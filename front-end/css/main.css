@@ -95,22 +95,26 @@ h3 {
     text-align: center;
     color: #000; }
 .page-header {
-  height: 100vh;/* 
-  background-image: url(../img/header-bg.jpg);
-   -webkit-background-size: cover;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: 0 100px; */
- position: relative;
+  height: 100vh;
+  background-color: #7507C9;
+  position: relative;
+}
+.header-row {
+  transition: 0.6s ease-in-out;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #7507C9;
+  border-bottom: 5px solid  #7507C9;
 }
 .header-top-row {
-  background-color: #B9DAA3;
-  color: #776269;
   font-weight: 300;
   font-size: 10px;
   z-index: 20; }
 .header-logo {
-  color: #669945;
+  color: #7507C9;
 }
 .header-top-row-wrapper {
   height: 35px;
@@ -131,18 +135,24 @@ h3 {
   display: flex; }
   .header-top-row-column span {
     font-size: 14px;
+    color: #FFFC9D;
     letter-spacing: 0.5px;
     font-weight: bold;
   }
   .header-top-row-column span:first-child {
     padding-right: 5px;
-    border-right: 2px solid #776269; }
+    border-right: 2px solid #FFFC9D; }
   .header-top-row-column span:last-child {
     padding-left: 3px; }
   .header-top-row-column .user-mail {
     text-transform: lowercase; }
 
 .header-bottom-row {
+  height: 65px;
+  padding: 0 15px;
+  background-color: #fff;
+ }
+.header-bottom-row-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,13 +162,11 @@ h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 65px;
   position: relative;
   max-width: 1200px;
   width: 100%;
-  padding: 0 15px;
-  margin: 0 auto; }
-
+   margin: 0 auto; 
+} 
 .header-nav {
   margin: 0 5px;
   -webkit-transition: -webkit-transform 0.3s ease;
@@ -182,8 +190,8 @@ h3 {
   width: 35px;
   height: 35px;
   vertical-align: middle;
-  fill: #B9DAA3;
-  stroke: #B9DAA3;
+  fill: #7507C9;
+  stroke: #7507C9;
   transition: 0.3s ease;
 }
 .header-link {
@@ -192,38 +200,34 @@ h3 {
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: #669945;
+  color: #7507C9;
   display: block;
   text-align: center;
   padding: 0 10px;
   transition: 0.3s ease; }
   .header-link:hover {
-    background-color: #B9DAA3;
+    background-color: #7507C9;
     color: #fff; }
-  .header-link:hover span {
-    top: 2px;
-    right: 5px;
-    width: 15px;
-    height: 15px;
-  }
   .header-link:hover .header-link-icon {
     fill: #fff;
     stroke: #fff;
   }
-.link-special span {
-  position: absolute;
+.header-cake-icon span {
   display: block;
-  width: 20px;
-  height: 20px;
-  padding: 3px;
-  font-size: 14px;
-  line-height: 14px;
-  border-radius: 50%;
-  background-color: red;
-  color: #fff;
-  top: 5px;
-  right: 10px;
-  transition: 0.3s ease;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -15px;
+  right: 15px;
+}
+.header-cake-icon span svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .link-button {
   display: block;
@@ -300,13 +304,6 @@ h3 {
 }
 
 
-.top-section {
-  height: calc(100vh - 100px);
-  background-image: url(../img/header-bg.jpg);
- -webkit-background-size: cover;
- background-size: cover;
- background-repeat: no-repeat;
-}
 .top-section-wrapper {
   position: absolute;
   top: 50%;
@@ -320,7 +317,7 @@ h3 {
 .top-section-text {
   max-width: 470px;
   width: 100%;
-  color: #776269; }
+  color: #FFFC9D; }
   .top-section-text p:first-child {
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
