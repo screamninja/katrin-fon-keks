@@ -3,8 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	var headerRow = document.querySelector('.header-row');
 	var header = document.querySelector('.page-header');
 	var headerDropDownLink = document.querySelector('.header-dropdown');
-	var headerDropDownMenu = document.querySelector('.header-dropdown-menu-wrapper');
+	var headerDropDownMenu = document.querySelector('.header-dropdown-menu');
 	var headerArrow = document.querySelector('.header-dropdown-icon');
+	var headerLogoCat = document.querySelector('.logo-cat');
+	var footerColumnForImage = document.querySelector('.footer-column-image');
+
 
 	headerDropDownLink.addEventListener('mouseover', function() {
 		headerDropDownMenu.style.opacity = 1;
@@ -27,14 +30,25 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	function scrollMenu() {
 		var headerCoords = header.getBoundingClientRect().bottom;
-		if(headerCoords <= 750 && headerCoords >= 200) {
+		if(headerCoords <= 750 && headerCoords >= 400) {
 			headerRow.style.opacity = 0;
 		} else {
 			headerRow.style.opacity = 1;
+		}
+
+		if(headerCoords < 400) {
+			headerLogoCat.style.width = '100px';
+			headerLogoCat.style.height = '125px';
+			headerLogoCat.style.transform = 'translateX(60px)';
+		} else {
+			headerLogoCat.style.width = '200px';
+			headerLogoCat.style.height = '250px';
+			headerLogoCat.style.transform = 'translate(0,0)';
 		}
 	}
 	window.onscroll = function() {
 		scrollMenu();
 	};
 	cakeIcon.innerHTML = `<svg><use xlink:href="#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
+	footerColumnForImage.innerHTML = `<svg class="footer-animate-icon"><use xlink:href="#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
 });
