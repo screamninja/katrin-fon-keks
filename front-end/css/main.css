@@ -111,7 +111,6 @@ h3 {
   top: 0;
   right: 0;
   left: 0;
-  : 10;
   background-color: #7507C9;
   border-bottom: 5px solid  #7507C9;
 }
@@ -128,6 +127,7 @@ h3 {
   top: -25px;
   width: 200px;
   height: 250px;
+  transition: 0.3s linear;
 }
 .header-logo-text {
    font-family: 'Better Together';

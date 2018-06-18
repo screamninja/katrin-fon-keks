@@ -30,11 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	function scrollMenu() {
 		var headerCoords = header.getBoundingClientRect().bottom;
-		if(headerCoords <= 750 && headerCoords >= 400) {
-			headerRow.style.opacity = 0;
-		} else {
-			headerRow.style.opacity = 1;
-		}
 
 		if(headerCoords < 400) {
 			headerLogoCat.style.width = '100px';
