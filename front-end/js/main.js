@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var headerDropDownMenu = document.querySelector('.header-dropdown-menu');
 	var headerArrow = document.querySelector('.header-icon-dropdown');
 	var headerLogoCat = document.querySelector('.page-logo-cat');
-	var footerColumnForImage = document.querySelector('.footer-column-image');
+	var footerColumnForImage = document.querySelector('.footer-icon-wrapper');
 
 
 	headerDropDownLink.addEventListener('mouseover', function() {
