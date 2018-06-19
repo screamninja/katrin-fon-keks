@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() { 
 	var cakeIcon = document.querySelector('.header-cake-icon span');
-	var headerRow = document.querySelector('.header-row');
 	var header = document.querySelector('.page-header');
 	var headerDropDownLink = document.querySelector('.header-dropdown');
 	var headerDropDownMenu = document.querySelector('.header-dropdown-menu');
-	var headerArrow = document.querySelector('.header-dropdown-icon');
-	var headerLogoCat = document.querySelector('.logo-cat');
+	var headerArrow = document.querySelector('.header-icon-dropdown');
+	var headerLogoCat = document.querySelector('.page-logo-cat');
 	var footerColumnForImage = document.querySelector('.footer-column-image');
 
 
