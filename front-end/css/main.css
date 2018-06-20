@@ -18,7 +18,7 @@ img {
 
 .main-btn {
   transition: 0.3s ease;
-  color: #00BEB7;
+  color: #6ED3CF;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -31,11 +31,11 @@ img {
     width: 0;
     height: 0;
     border-top: 4px solid transparent;
-    border-left: 7px solid #00BEB7;
+    border-left: 7px solid #6ED3CF;
     border-bottom: 4px solid transparent;
     margin-left: 5px; }
 .main-btn:hover {
-  background-color: #000;
+  background-color: #6ED3CF;
   color: #fff;
 }
 .main-btn:hover span {
@@ -69,7 +69,9 @@ img {
 
 .page-header {
   height: 100vh;
-  background-color: #7507C9;
+  background-image: url(../img/header-bg.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
   position: relative;
 }
 .header-row {
@@ -79,8 +81,8 @@ img {
   top: 0;
   right: 0;
   left: 0;
-  background-color: #7507C9;
-  border-bottom: 5px solid  #7507C9;
+  background-color: #6C488F;
+  border-bottom: 5px solid  #6C488F;
 }
 
 .header-top-row-column {
@@ -89,7 +91,7 @@ img {
   display: flex; }
 .header-top-row-column span {
   font-size: 14px;
-  color: #FFFC9D;
+  color: #DCE3ED;
   letter-spacing: 0.5px;
   font-weight: bold;
   text-transform: lowercase;
@@ -140,8 +142,8 @@ position: relative;
   width: 35px;
   height: 40px;
   vertical-align: middle;
-  fill: #7507C9;
-  stroke: #7507C9;
+  fill: #6C488F;
+  stroke: #6C488F;
   transition: 0.3s ease;
 }
 .header-icon-dropdown {
@@ -167,14 +169,14 @@ position: relative;
   transition: 0.3s ease-in-out;
 }
 .header-dropdown-menu a {
-  color: #7507C9;
+  color: #6C488F;
   display: block;
   padding: 20px 15px;
   transition: 0.3s ease;
   text-align: center;
 }
 .header-dropdown-menu a:hover {
-  background-color: #7507C9;
+  background-color: #6C488F;
   color: #fff;
 } 
 .header-link {
@@ -183,13 +185,13 @@ position: relative;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: #7507C9;
+  color: #6C488F;
   display: block;
   text-align: center;
   padding: 0 10px;
   transition: 0.3s ease; }
 .header-link:hover {
-  background-color: #7507C9;
+  background-color: #6C488F;
   color: #fff; }
 .header-link:hover .header-link-icon {
   fill: #fff;
@@ -223,25 +225,26 @@ position: relative;
 }
 
 .top-section-wrapper {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  left: 0;
+  position: relative;
   max-width: 1200px;
   width: 100%;
+  height: 100% ;
   margin: 0 auto;}
 
 .top-section-text {
+  position: absolute;
+  top: calc(50% + 60px);
+  transform: translateY(-50%);
   max-width: 470px;
   width: 100%;
   font-family: "Open Sans", sans-serif;
-  color: #FFFC9D; }
+  color: #DCE3ED; }
 .top-section-text p:first-child {
   font-weight: 800;
   text-transform: uppercase;
   font-size: 14px; }
 .top-section-text .large-text {
+  color: #F37A29;
   font-weight: 800;
   font-size: 72px;
   line-height: 72px;
@@ -294,9 +297,9 @@ position: relative;
   margin-bottom: 30px; }
 
 .banners-item {
-  color: #FFFC9D;
+  color: #DCE3ED;
   position: relative;
-  background-color: #7507C9; 
+  background-color: #6C488F; 
   display: flex;
   flex-direction: column;
   max-width: 570px;
@@ -306,7 +309,11 @@ position: relative;
   padding-top: 40px; }
 .banners-item p {
   font-family: "Open Sans", sans-serif; }
+
 .banners-item-left {
+  background-image: url(../img/best_price.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
   text-align: right;
    -ms-align-items: flex-end;
   align-items: flex-end;
@@ -315,6 +322,10 @@ position: relative;
   right: 10px;
 }
 .banners-item-right {
+  background-image: url(../img/top_sales.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  
   text-align: left;
   -ms-align-items: flex-start;
   align-items: flex-start;
@@ -327,6 +338,7 @@ position: relative;
   width: 100%;
 }
 .banners-item-caption {
+  color: #F37A29;
   font-size: 30px;
   font-weight: 800;
   text-transform: uppercase;
@@ -349,7 +361,7 @@ position: relative;
 .banners-btn {
   position: absolute;
   bottom: 10px;
-  color: #fff;
+  color: #6ED3CF;
   text-transform: uppercase;
   font-weight: bold;
   padding: 15px;
@@ -363,9 +375,8 @@ position: relative;
 .banner {
   width: 100%;
   height: 260px;
-  background-image: url(/img/banner.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-image: url(../img/banner.jpg);
+  background-size: cover;
   position: relative;
   margin-bottom: 30px;
   padding-top: 50px;
@@ -399,12 +410,14 @@ position: relative;
 
 
 
-
-
 .page-footer {
-  background-color: #7507C9;
+  padding: 25px 0;
+  background-color: #6C488F;
+  color: #DCE3ED;
   position: relative; }
-
+.page-footer a {
+   color: #DCE3ED;
+}
 .page-footer-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -412,12 +425,14 @@ position: relative;
   justify-content: space-between; }
 .footer-column {
   position: relative;
-  max-width: 400px;
-  width: 100%;
+}
+.footer-column{
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 .footer-column:last-child {
-  max-width: 250px;
-  width: 100%;
+  justify-content: flex-start;
 }
 .footer-column-description-text {
   color: #300154;
@@ -425,48 +440,53 @@ position: relative;
   margin: 10px 0;
 }
 .footer-icon-wrapper {
+  margin-right: 50px;
   text-align: center;
 }
 .footer-copyright {
   text-align: center;
   font-size: 16px;
-  color: #fff;
+}
+.footer-social-list {
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .footer-social-link{
   display: flex;
   align-items: center;
-  margin: 5px 0;
-  color: #fff;
+  margin: 0 15px;
   font-size: 18px;
+}
+.footer-social-link:hover {
+  color: #FFFC9D;
+}
+.footer-social-link:hover .footer-social-icon {
+  fill: #FFFC9D;
 }
 .footer-social-icon {
   width: 25px;
   height: 25px;
   margin-right: 5px;
-  fill: #fff;
+  fill: #DCE3ED;
   transition: 0.3s ease;
-}
-.footer-column h3 {
-  margin: 10px 0;
-  margin-bottom: 20px;
-  font-size: 18px;
-  color: #300154;
-  letter-spacing: 0.5px;
-  text-align: left;
 }
 .footer-link {
   display: block;
   font-size: 18px;
-  color: #fff;
   padding: 5px 0;
   transition: 0.3s ease;
+}
+.footer-link:hover {
+  color: #FFFC9D;
 }
 .footer-column-image {
   text-align: center;
 }
 .footer-animate-icon {
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   animation: move 3s ease-out infinite;
 }
 @keyframes move {

@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	var headerDropDownMenu = document.querySelector('.header-dropdown-menu');
 	var headerArrow = document.querySelector('.header-icon-dropdown');
 	var headerLogoCat = document.querySelector('.page-logo-cat');
-	var footerColumnForImage = document.querySelector('.footer-icon-wrapper');
+	var footerColumnForImage = document.querySelector('.footer-icon');
 
 
 	headerDropDownLink.addEventListener('mouseover', function() {
 		headerDropDownMenu.style.opacity = 1;
 		headerDropDownMenu.style.visibility = 'visible';
-		this.style.backgroundColor = '#7507C9';
+		this.style.backgroundColor = '#6C488F';
 		this.children[0].style.color = '#fff';
 		headerArrow.style.transform = 'rotate(180deg)';
 		headerArrow.style.borderTopColor = '#fff';
@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		headerDropDownMenu.style.opacity = 0;
 		headerDropDownMenu.style.visibility = 'hidden';
 		this.style.backgroundColor = '#fff';
-		this.children[0].style.color = '#7507C9';
+		this.children[0].style.color = '#6C488F';
 		headerArrow.style.transform = 'rotate(0)';
-		headerArrow.style.borderTopColor = '#7507C9';
+		headerArrow.style.borderTopColor = '#6C488F';
 	})
 	function getRandomArbitrary(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
