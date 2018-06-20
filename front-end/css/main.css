@@ -69,7 +69,9 @@ img {
 
 .page-header {
   height: 100vh;
-  background-color: #6C488F;
+  background-image: url(../img/header-bg.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
   position: relative;
 }
 .header-row {
@@ -223,16 +225,16 @@ position: relative;
 }
 
 .top-section-wrapper {
-  position: absolute;
-  top: calc(50% + 55px);
-  transform: translateY(-50%);
-  right: 0;
-  left: 0;
+  position: relative;
   max-width: 1200px;
   width: 100%;
+  height: 100% ;
   margin: 0 auto;}
 
 .top-section-text {
+  position: absolute;
+  top: calc(50% + 60px);
+  transform: translateY(-50%);
   max-width: 470px;
   width: 100%;
   font-family: "Open Sans", sans-serif;
@@ -307,7 +309,11 @@ position: relative;
   padding-top: 40px; }
 .banners-item p {
   font-family: "Open Sans", sans-serif; }
+
 .banners-item-left {
+  background-image: url(../img/best_price.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
   text-align: right;
    -ms-align-items: flex-end;
   align-items: flex-end;
@@ -316,6 +322,10 @@ position: relative;
   right: 10px;
 }
 .banners-item-right {
+  background-image: url(../img/top_sales.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  
   text-align: left;
   -ms-align-items: flex-start;
   align-items: flex-start;
@@ -365,9 +375,8 @@ position: relative;
 .banner {
   width: 100%;
   height: 260px;
-  background-image: url(/img/banner.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-image: url(../img/banner.jpg);
+  background-size: cover;
   position: relative;
   margin-bottom: 30px;
   padding-top: 50px;
