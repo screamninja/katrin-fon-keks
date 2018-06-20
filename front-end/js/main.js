@@ -43,6 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	window.onscroll = function() {
 		scrollMenu();
 	};
-	cakeIcon.innerHTML = `<svg><use xlink:href="#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
-	footerColumnForImage.innerHTML = `<svg class="footer-animate-icon"><use xlink:href="#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
+	cakeIcon.innerHTML = `<svg><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
+	footerColumnForImage.innerHTML = `<svg class="footer-animate-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
 });
