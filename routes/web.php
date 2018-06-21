@@ -13,12 +13,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', 'PagesController@home');
+
+
+
 Route::get('/test', function () {
-    return view('test/test', ['name' => 'Developer']);
+    return view('apps.test.test', ['name' => 'Developer']);
 });
 
-Route::get('mycalc','MyCalcController@index');
+Route::get('/mycalc','MyCalcController@index');
 
-Route::get('/', 'PagesController@index');
-
-Route::get('/contact', 'PagesController@contact');

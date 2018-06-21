@@ -1,65 +1,55 @@
-const menuBtn = document.querySelector('.hide-menu');
-const headerNav = document.querySelector('.header-nav');
+document.addEventListener("DOMContentLoaded", function() { 
+	var cakeIcon = document.querySelector('.header-cake-icon span');
+	var header = document.querySelector('.page-header');
+	var headerLogoCat = document.querySelector('.page-logo-cat');
+	var footerColumnForImage = document.querySelector('.footer-icon');
+	var headerBurgerBtn = document.querySelector('.header-burger');
+	var headerNav = document.querySelector('.header-nav');
+	var headerLinkDropdown = document.querySelector('.header-link-dropdown');
+	var headerDropdownMenu = document.querySelector('.header-dropdown-menu');
 
-menuBtn.addEventListener('click', function() {
-	headerNav.classList.toggle('header-nav-mobile'),
-	menuBtn.classList.toggle('hide-menu-active');
-})
+	headerLinkDropdown.addEventListener('click', function(e) {
+		e.preventDefault();
+		headerDropdownMenu.classList.toggle('header-dropdown-menu-show');
+	})
 
-const loginBtn = document.querySelector('.profile');
-const popup = document.querySelector('.login-popup');
-const loginCloseBtn = document.querySelector('.popup-close-button');
+	headerBurgerBtn.addEventListener('click', function() {
+		headerNav.classList.toggle('header-nav-show');
+		this.classList.toggle('header-burger-open');
+	})
 
-loginBtn.addEventListener('click', function() {
-	popup.classList.toggle('popup-show');
-})
- 
-loginCloseBtn.addEventListener('click', function() {
-	if (popup.classList.contains('popup-show')) {
-		popup.classList.remove('popup-show');
+	function getRandomArbitrary(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
-})
-let basket = document.querySelector('.header-basket-value');
-let basketValue = +basket.textContent.slice(1);
-let addToBasket = document.querySelectorAll('.basket');
-const basketShow = document.querySelector('.basket-items');
-const basketBtn = document.querySelector('.header-basket');
-
-for(let i = 0; i < addToBasket.length; i++) {
-	addToBasket[i].addEventListener('click', function(e) {
-		e.preventDefault();
-		let newValue = Math.round(this.closest('.product-item').getAttribute('data-cost'));
-		basketValue += newValue;
-		basket.innerHTML = `$${basketValue}.00`;
-
-		let li = document.createElement('li');
-		li.innerHTML = `${this.closest('.product-item').getAttribute('data-name')} : $${newValue}.00`;
-		basketShow.appendChild(li);
-	})
-}
-
-basketBtn.addEventListener('mouseover', function() {
-	basketShow.classList.add('basket-items-show');
-})
-basketBtn.addEventListener('mouseout', function() {
-	basketShow.classList.remove('basket-items-show');
-})
-
-const favoriteItems = document.querySelector('.favorite-items');
-const headerFavBtn = document.querySelector('.header-favorites');
-
-let addToFavorite = document.querySelectorAll('.favorites');
-for(let i = 0; i < addToFavorite.length; i++) {
-	addToFavorite[i].addEventListener('click', function(e) {
-		e.preventDefault();
-		let li = document.createElement('li');
-		li.innerHTML = `${this.closest('.product-item').getAttribute('data-name')}`;
-		favoriteItems.appendChild(li);
-	})
-}
-headerFavBtn.addEventListener('mouseover', function(e) {
-	favoriteItems.classList.add('favorite-items-show');
-})
-headerFavBtn.addEventListener('mouseout', function() {
-	favoriteItems.classList.remove('favorite-items-show');
-})
+	function scrollMenu() {
+		var headerCoords = header.getBoundingClientRect().bottom;
+		if(headerCoords < 400 ) {
+			headerLogoCat.style.width = '100px';
+			headerLogoCat.style.height = '125px';
+			headerLogoCat.style.transform = 'translateX(60px)';
+		} else {
+			headerLogoCat.style.width = '200px';
+			headerLogoCat.style.height = '250px';
+			headerLogoCat.style.transform = 'translate(0,0)';
+		}
+	}
+	window.onscroll = function() {
+		if (window.innerWidth >= 1280) {
+			scrollMenu();
+		}
+	};
+	window.onresize = function() {
+		if(window.innerWidth <= 1280) {
+			headerLogoCat.style.width = '100px';
+			headerLogoCat.style.height = '125px';
+		} else {
+			headerLogoCat.style.width = '200px';
+			headerLogoCat.style.height = '250px';
+		}
+	}
+	if (window.innerWidth >= 500) {
+		footerColumnForImage.innerHTML = `<svg class="footer-animate-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
+	}
+	cakeIcon.innerHTML = `<svg><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
+	
+});

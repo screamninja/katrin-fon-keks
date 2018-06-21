@@ -30,6 +30,6 @@ class MyCalcController extends Controller
             }
         }
 
-        return view('mycalc.index')->with('res', $res);
+        return view('apps.mycalc.index')->with('res', $res);
     }
 }
