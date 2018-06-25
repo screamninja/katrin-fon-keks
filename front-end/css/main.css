@@ -1,14 +1,18 @@
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif; }
+  box-sizing: border-box;}
 
 ul {
   padding: 0;
   margin: 0;
   list-style-type: none; }
+p {
+  font-family: 'Roboto', sans-serif;
 
+}
 a {
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 1px;
   text-decoration: none; }
 
 img {
@@ -123,6 +127,7 @@ img {
 .page-header {
   height: 100vh;
   background-image: url(../img/header-bg.jpg);
+  background-position: 100% 50%;
   background-size: cover;
   position: relative; }
 
@@ -144,9 +149,10 @@ img {
   display: flex; }
 
 .header-top-row-column span {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
   font-size: 14px;
   color: #DCE3ED;
-  letter-spacing: 0.5px;
   font-weight: bold;
   text-transform: lowercase; }
 
@@ -271,7 +277,7 @@ img {
 .header-link {
   position: relative;
   line-height: 65px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.5px;
   color: #6C488F;
@@ -301,7 +307,7 @@ img {
   background-color: #fff; }
 
 .header-link-bold {
-  font-weight: 800; }
+  font-weight: 900; }
 
 .header-cake-icon span {
   display: block;
@@ -335,24 +341,26 @@ img {
   transform: translateY(-50%);
   max-width: 470px;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
   color: #DCE3ED; }
 
 .top-section-text p:first-child {
   font-weight: 800;
+  letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 14px; }
 
 .top-section-text .large-text {
+  font-family: 'Roboto', sans-serif;
   color: #F37A29;
-  font-weight: 800;
-  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 82px;
   line-height: 72px;
-  margin: 25px 0; }
+  margin: 20px 0; }
 
 .top-section-text .light-text {
   font-size: 18px;
-  font-weight: bold; }
+  letter-spacing: 0.5px; }
 
 .advantages-wrapper {
   display: -webkit-box;
@@ -376,7 +384,6 @@ img {
   font-size: 18px; }
 
 .advantages-text {
-  font-weight: 300;
   font-size: 16px; }
 
 .banners-wrapper {
@@ -404,9 +411,20 @@ img {
   height: 300px;
   padding: 10px;
   padding-top: 40px; }
+.banners-item-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
+}
 .banners-item p {
-  font-family: "Open Sans", sans-serif; }
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+ }
 
 .banners-item-left {
   margin-right: 30px;
@@ -439,25 +457,29 @@ img {
 
 .banners-item-caption {
   color: #F37A29;
+  font-family: 'Roboto', sans-serif;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 30px;
   margin-top: 0;
   margin-bottom: 15px; }
 
 .banners-item-addition {
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   font-size: 14px;
   margin: 0; }
 
 .banners-price {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 30px;
   text-transform: uppercase;
-  font-weight: 700;
-  display: inline-block;
+  letter-spacing: 0.5px;
+  font-weight: 900;
   margin-bottom: 20px; }
 
 .banners-btn {
@@ -465,7 +487,7 @@ img {
   bottom: 10px;
   color: #6ED3CF;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
   padding: 15px;
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
@@ -487,23 +509,25 @@ img {
   padding-left: 50px; }
 
 .banner-large-text {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.5px;
   font-size: 36px;
   line-height: 40px;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   color: #00b8b8;
   margin-top: 0;
   margin-bottom: 15px; }
 
 .banner-info {
-  font-weight: 300;
-  font-size: 12px;
-  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
   color: #636363;
   letter-spacing: 1px;
   margin-bottom: 20px; }
 
 .banner-top-p {
+  font-family: 'Roboto', sans-serif;
   font-weight: 900;
   letter-spacing: 1px;
   font-size: 14px;
@@ -588,6 +612,7 @@ img {
 .footer-link {
   display: block;
   font-size: 18px;
+  letter-spacing: 0.5px;
   padding: 5px 0;
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
