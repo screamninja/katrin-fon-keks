@@ -47,9 +47,15 @@ document.addEventListener("DOMContentLoaded", function() {
 			headerLogoCat.style.height = '250px';
 		}
 	}
-	if (window.innerWidth >= 500) {
-		footerColumnForImage.innerHTML = `<svg class="footer-animate-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
-	}
-	cakeIcon.innerHTML = `<svg><use xlink:href="img/svg/symbol-defs.svg#icon-cake-${getRandomArbitrary(1,6)}" /></svg>`;
-	
+	 if (window.innerWidth >= 500) {
+    footerColumnForImage.innerHTML =
+      '<svg class="footer-animate-icon"><use xlink:href="#icon-cake-' +
+      getRandomArbitrary(1, 6) +
+      '" /></svg>';
+  }
+  cakeIcon.innerHTML =
+    '<svg><use xlink:href="#icon-cake-' +
+    getRandomArbitrary(1, 6) +
+    '" /></svg>';
+		
 });
