@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class PagesController extends Controller
 {
-    public function home()
+    public function blog()
     {
-        return view('pages.home');
+        return view('pages.blog');
     }
 }

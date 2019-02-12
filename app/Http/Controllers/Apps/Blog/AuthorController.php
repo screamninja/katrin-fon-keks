@@ -2,58 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostFromRequest;
+use Illuminate\Http\Request;
 use App\User;
 use App\Posts;
-use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AuthorController extends Controller
 {
-    /**
-     * Вывод активных постов отдельного пользователя
-     * @param int $id
-     * @return view
-     */
-    public function userPosts($id): view
+    // Вывод активных постов отдельного пользователя
+    public function userPosts($id)
     {
         //
         $posts = Posts::where('author_id', $id)->where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
         $title = User::find($id)->name;
-        return view('home')->with('posts', $posts)->with('title', $title);
+        return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
 
-    /**
-     * Вывод всех постов отдельного пользователя
-     * @param Request $request
-     * @return view
-     */
+    // Вывод всех постов отдельного пользователя
     public function userPostsAll(Request $request)
     {
         //
         $user = $request->user();
         $posts = Posts::where('author_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $title = $user->name;
-        return view('home')->with('posts', $posts)->with('title', $title);
+        return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
 
-    /**
-     * Вывод черновиков постов текущего активного пользователя
-     * @param Request $request
-     * @return view
-     */
-    public function userPostsDraft(Request $request)
+    // Вывод черновиков постов текущего активного пользователя
+    public function userPostsDraft(equest $request)
     {
         //
         $user = $request->user();
         $posts = Posts::where('author_id', $user->id)->where('active', 0)->orderBy('created_at', 'desc')->paginate(5);
         $title = $user->name;
-        return view('home')->with('posts', $posts)->with('title', $title);
+        return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
 
-    /**
-     * профиль пользователя
-     */
+    // Author profile
     public function profile(Request $request, $id)
     {
         $data['user'] = User::find($id);

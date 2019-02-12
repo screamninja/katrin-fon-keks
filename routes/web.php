@@ -1,80 +1,80 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-//Route::get('/', 'PagesController@home');
+/**
+ * Main routes
+ */
+Route::get('/', 'HomeController@home');
+Route::get('/blog', 'Apps\Blog\PostController@index');
 
-Route::get('/', 'PostController@index');
-Route::get('/home', ['as' => 'home', 'uses' => 'PostController@index']);
-
+/**
+ * Authentication routes
+ */
 Auth::routes();
 
-//отображение формы аутентификации
-Route::get('/auth/login', 'Auth\LoginController@showLoginForm')->name('login');
-//POST запрос аутентификации на сайте
-Route::post('/auth/login', 'Auth\LoginController@login');
-//POST запрос на выход из системы (логаут)
-Route::post('/auth/logout', 'Auth\LoginController@logout')->name('logout');
+/**
+ * Login/Logout routes
+ */
+// Show login form
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+// Login
+Route::post('/login', 'Auth\LoginController@login');
+// Logout
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 /**
- * Маршруты регистрации...
+ * Registration routes
  */
-
-//страница с формой Laravel регистрации пользователей
-Route::get('/auth/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//POST запрос регистрации на сайте
-Route::post('/auth/register', 'Auth\RegisterController@register');
+// Show registration form
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Registration
+Route::post('/register', 'Auth\RegisterController@register');
 
 /**
- * URL для сброса пароля...
+ * Password reset routes
  */
+// Send password reset link to user email
+Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// Link to password reset (can be sent by email)
+Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// Show password reset form
+Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// Password reset
+Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
-//POST запрос для отправки email письма пользователю для сброса пароля
-Route::post('/auth/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-//ссылка для сброса пароля (можно размещать в письме)
-Route::get('/auth/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-//страница с формой для сброса пароля
-Route::get('/auth/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-//POST запрос для сброса старого и установки нового пароля
-Route::post('/auth/password/reset', 'Auth\ResetPasswordController@reset');
-
-// Check logged user.
+/**
+ * Blog routes
+ */
+// Check logged user
 Route::group(['middleware' => ['auth']], function () {
-    // Show new post.
-    Route::get('new-post', 'PostController@create');
-    // Save new post.
-    Route::post('new-post', 'PostController@store');
-    // Edit post.
-    Route::get('edit/{slug}', 'PostController@edit');
-    // Update post.
-    Route::post('update', 'PostController@update');
-    // Delete post.
-    Route::get('delete/{id}', 'PostController@destroy');
-    // Show all user posts.
-    Route::get('my-all-posts', 'UserController@user_posts_all');
-    // Show user drafts.
-    Route::get('my-drafts', 'UserController@user_posts_draft');
-    // Add comment.
-    Route::post('comment/add', 'CommentController@store');
-    // Delete comment.
-    Route::post('comment/delete/{id}', 'CommentController@distroy');
+    // Show new post
+    Route::get('blog/new-post', 'Apps\Blog\PostController@create');
+    // Save new post
+    Route::post('blog/new-post', 'Apps\Blog\PostController@store');
+    // Edit post
+    Route::get('blog/edit/{slug}', 'Apps\Blog\PostController@edit');
+    // Update post
+    Route::post('blog/update', 'Apps\Blog\PostController@update');
+    // Delete post
+    Route::get('blog/delete/{id}', 'Apps\Blog\PostController@destroy');
+    // Show all user posts
+    Route::get('blog/my-all-posts', 'Apps\Blog\UserController@userPostsAll');
+    // Show user drafts
+    Route::get('blog/my-drafts', 'Apps\Blog\UserController@userPostsDraft');
+    // Add comment
+    Route::post('blog/comment/add', 'Apps\Blog\CommentController@store');
+    // Delete comment
+    Route::post('blog/comment/delete/{id}', 'Apps\Blog\CommentController@distroy');
 });
 
-// Users profiles.
-Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
-// Show posts list.
-Route::get('user/{id}/posts', 'UserController@user_posts')->where('id', '[0-9]+');
-// Show one post.
-Route::get('/{slug}', ['as' => 'post', 'uses' => 'PostController@show'])->where('slug', '[A-Za-z0-9-_]+');
+/**
+ * User profile routes
+ */
+// Author profiles
+Route::get('user/{id}', 'Apps\Blog\UserController@profile')->where('id', '[0-9]+');
+// Show posts list
+Route::get('user/{id}/posts', 'Apps\Blog\UserController@userPosts')->where('id', '[0-9]+');
+// Show one post
+Route::get('blog/{slug}', ['as' => 'post', 'uses' => 'Apps\Blog\PostController@show'])->where('slug', '[A-Za-z0-9-_]+');

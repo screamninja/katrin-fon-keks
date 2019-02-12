@@ -1,18 +1,8 @@
-{{--@extends('layouts.app')--}}
-{{--@section('title', 'Будет вкусно!')--}}
-
-{{--@section('content')--}}
-
-{{--@include('includes.header')--}}
-{{--@include('includes.advantages')--}}
-{{--@include('includes.banners')--}}
-
-{{--@endsection--}}
-
-@extends('app')
+@extends('layouts.posts')
 @section('title')
-    {{$title}}
+    {{ $title }}
 @endsection
+@include('includes.header')
 @section('content')
     @if ( !$posts->count() )
         Ещё нет постов. Ввойдите и напишите новый пост!
@@ -22,7 +12,7 @@
                 <div class="list-group">
                     <div class="list-group-item">
                         <h3><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
-                            @if(!Auth::guest() && ($post->author_id === Auth::user()->id || Auth::user()->is_admin()))
+                            @if(!Auth::guest() && ($post->author_id === Auth::user()->id || Auth::user()->isAdmin()))
                                 @if($post->active === '1')
                                     <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Редактировать
                                             пост</a></button>
@@ -32,8 +22,7 @@
                                 @endif
                             @endif
                         </h3>
-                        <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a
-                                    href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>
+                        <p>{{ $post->created_at->format('d.m.Y в\ H:i') }} - Автор: <a href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>
                     </div>
                     <div class="list-group-item">
                         <article>
