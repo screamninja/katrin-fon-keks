@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Posts;
 
-class AuthorController extends Controller
+class UserController extends Controller
 {
     // Вывод активных постов отдельного пользователя
     public function userPosts($id)

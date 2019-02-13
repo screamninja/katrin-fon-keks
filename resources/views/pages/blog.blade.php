@@ -11,13 +11,13 @@
             @foreach( $posts as $post )
                 <div class="list-group">
                     <div class="list-group-item">
-                        <h3><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
+                        <h3><a href="{{ url('/blog/'.$post->slug) }}">{{ $post->title }}</a>
                             @if(!Auth::guest() && ($post->author_id === Auth::user()->id || Auth::user()->isAdmin()))
                                 @if($post->active === '1')
-                                    <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Редактировать
+                                    <button class="btn" style="float: right"><a href="{{ url('blog/edit/'.$post->slug)}}">Редактировать
                                             пост</a></button>
                                 @else
-                                    <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Редактировать
+                                    <button class="btn" style="float: right"><a href="{{ url('blog/edit/'.$post->slug)}}">Редактировать
                                             черновик</a></button>
                                 @endif
                             @endif
@@ -26,7 +26,7 @@
                     </div>
                     <div class="list-group-item">
                         <article>
-                            {!! str_limit($post->body, $limit = 1500, $end = '....... <a href='.url("/".$post->slug).'>Подробнее</a>') !!}
+                            {!! str_limit($post->body, $limit = 1500, $end = '....... <a href='.url("blog/".$post->slug).'>Подробнее</a>') !!}
                         </article>
                     </div>
                 </div>

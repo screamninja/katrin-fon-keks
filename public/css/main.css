@@ -112,6 +112,11 @@ img {
   margin: 0 auto; }
 
 .page-header {
+  height: 30vh;
+  background-size: cover;
+  position: relative; }
+
+.page-homeheader {
   height: 100vh;
   background-image: url(../img/header-bg.jpg);
   background-size: cover;

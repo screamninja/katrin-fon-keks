@@ -73,8 +73,8 @@ Route::group(['middleware' => ['auth']], function () {
  * User profile routes
  */
 // Author profiles
-Route::get('user/{id}', 'Apps\Blog\UserController@profile')->where('id', '[0-9]+');
+Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // Show posts list
-Route::get('user/{id}/posts', 'Apps\Blog\UserController@userPosts')->where('id', '[0-9]+');
+Route::get('user/{id}/posts', 'UserController@userPosts')->where('id', '[0-9]+');
 // Show one post
 Route::get('blog/{slug}', ['as' => 'post', 'uses' => 'Apps\Blog\PostController@show'])->where('slug', '[A-Za-z0-9-_]+');

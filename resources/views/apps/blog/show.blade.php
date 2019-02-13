@@ -1,10 +1,10 @@
-@extends('app')
+@extends('layouts.master')
 @section('title')
     @if($post)
         {{ $post->title }}
         @if(!Auth::guest() && ($post->author_id === Auth::user()->id || Auth::user()->isAdmin()))
             <button class="btn" style="float: right"><a
-                        href="{{ url('edit/'.$post->slug)}}">Редактировать пост</a></button>
+                        href="{{ url('blog/edit/'.$post->slug)}}">Редактировать пост</a></button>
         @endif
     @else
         Страница не существует
@@ -26,7 +26,7 @@
             <p>Залогинтесь, чтоб комментрировать</p>
         @else
             <div class="panel-body">
-                <form method="post" action="/comment/add">
+                <form method="post" action="blog/comment/add">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="on_post" value="{{ $post->id }}">
                     <input type="hidden" name="slug" value="{{ $post->slug }}">
@@ -46,7 +46,7 @@
                             <div class="list-group">
                                 <div class="list-group-item">
                                     <h3>{{ $comment->author->name }}</h3>
-                                    <p>{{ $comment->created_at->format('M d,Y \a\t h:i a') }}</p>
+                                    <p>{{ $comment->created_at->format('d.m.Y в\ H:i') }}</p>
                                 </div>
                                 <div class="list-group-item">
                                     <p>{{ $comment->body }}</p>

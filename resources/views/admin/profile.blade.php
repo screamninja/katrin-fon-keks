@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.master')
 @section('title')
     {{ $user->name }}
 @endsection

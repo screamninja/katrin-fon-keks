@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Apps\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostFromRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Posts;
@@ -16,7 +17,7 @@ class PostController extends Controller
         // Take 5 posts from Db, active and last
         $posts = Posts::where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
         // Page title
-        $title = 'Последние посты';
+        $title = 'Рецепты от Катрин';
         // Return blog.blade.php from resources/views/apps/blog
         return view('pages.blog')->withPosts($posts)->withTitle($title);
     }
@@ -32,7 +33,7 @@ class PostController extends Controller
     }
 
     // Posts store
-    public function store(Request $request)
+    public function store(PostFromRequest $request)
     {
         $post = new Posts();
         $post->title = $request->get('title');

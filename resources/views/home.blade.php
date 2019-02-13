@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('title', 'Будет вкусно!')
 
 @section('content')
 
-@include('includes.header')
+@include('includes.homeheader')
 @include('includes.advantages')
 @include('includes.banners')
 
