@@ -23,7 +23,6 @@ class CreateSweetsTable extends Migration
             $table->string('title')->unique();
             $table->text('body');
             $table->enum('type', ['cake', 'cupcake', 'cookie', 'dessert'])->default('dessert');
-            $table->unsignedBigInteger('composition');
             $table->unsignedBigInteger('themes');
             $table->float('price');
             $table->float('weight');
@@ -33,7 +32,7 @@ class CreateSweetsTable extends Migration
                 ->onDelete('cascade');
             $table->string('image');
             $table->string('slug')->unique();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

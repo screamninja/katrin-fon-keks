@@ -18,13 +18,11 @@ class CreateFillingsTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->text('body');
-            $table->unsignedBigInteger('composition');
             $table->string('image');
             $table->enum('using', ['all', 'up', 'single'])->default('single');
             $table->boolean('mastic');
             $table->boolean('naked');
             $table->string('slug')->unique();
-            $table->timestamps();
         });
     }
 

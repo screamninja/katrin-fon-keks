@@ -22,11 +22,10 @@ class CreateRecipesTable extends Migration
                 ->onDelete('cascade');
             $table->string('title')->unique();
             $table->text('body');
-            $table->unsignedBigInteger('composition');
             $table->unsignedBigInteger('themes');
             $table->string('slug')->unique();
-            $table->boolean('active');
-            $table->timestamps();
+            $table->boolean('privacy');
+            $table->timestamp('created_at')->nullable();
         });
     }
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFromRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Posts;
+use App\Recipes;
 
 class PostController extends Controller
 {
@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         // Take 5 posts from Db, active and last
-        $posts = Posts::where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
+        $posts = Recipes::where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
         // Page title
         $title = 'Рецепты от Катрин';
         // Return blog.blade.php from resources/views/apps/blog
@@ -32,10 +32,10 @@ class PostController extends Controller
         return redirect('/blog')->withErrors('У вас нет достаточных прав для написания поста!');
     }
 
-    // Posts store
+    // Recipes store
     public function store(PostFromRequest $request)
     {
-        $post = new Posts();
+        $post = new Recipes();
         $post->title = $request->get('title');
         $post->body = $request->get('body');
         $post->slug = str_slug($post->title);
@@ -54,7 +54,7 @@ class PostController extends Controller
     // Show post
     public function show($slug)
     {
-        $post = Posts::where('slug', $slug)->first();
+        $post = Recipes::where('slug', $slug)->first();
         if (!$post) {
             return redirect('blog/')->withErrors('Запрошенная страница не найдена!');
         }
@@ -65,7 +65,7 @@ class PostController extends Controller
     // Edit post
     public function edit(Request $request, $slug)
     {
-        $post = Posts::where('slug', $slug)->first();
+        $post = Recipes::where('slug', $slug)->first();
         if ($post && ($request->user()->id === $post->author_id || $request->user()->isAdmin()))
             return view('apps.blog.edit')->with('post', $post);
         return redirect('blog/')->withErrors('у вас нет достаточных прав!');
@@ -75,11 +75,11 @@ class PostController extends Controller
     public function update(Request $request)
     {
         $post_id = $request->input('post_id');
-        $post = Posts::find($post_id);
+        $post = Recipes::find($post_id);
         if ($post && ($post->author_id === $request->user()->id || $request->user()->isAdmin())) {
             $title = $request->input('title');
             $slug = str_slug($title);
-            $duplicate = Posts::where('slug', $slug)->first();
+            $duplicate = Recipes::where('slug', $slug)->first();
             if ($duplicate) {
                 if ($duplicate->id != $post_id) {
                     return redirect('blog/edit/' . $post->slug)->withErrors('Такое название уже существует!')->withInput();
@@ -108,7 +108,7 @@ class PostController extends Controller
     public function destroy(Request $request, $id)
     {
         //
-        $post = Posts::find($id);
+        $post = Recipes::find($id);
         if ($post && ($post->author_id === $request->user()->id || $request->user()->isAdmin())) {
             $post->delete();
             $data['message'] = 'Пост успешно удалён!';

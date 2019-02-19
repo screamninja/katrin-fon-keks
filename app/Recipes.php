@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Recipes extends Model
 {
     // Forbids changing columns.
     protected $guarded = [];

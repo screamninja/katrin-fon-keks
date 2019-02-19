@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Posts;
+use App\Recipes;
 use App\Comments;
 use Redirect;
 use App\Http\Requests;

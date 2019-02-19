@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFromRequest;
 use Illuminate\Http\Request;
 use App\User;
-use App\Posts;
+use App\Recipes;
 
 class UserController extends Controller
 {
@@ -14,7 +14,7 @@ class UserController extends Controller
     public function userPosts($id)
     {
         //
-        $posts = Posts::where('author_id', $id)->where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
+        $posts = Recipes::where('author_id', $id)->where('active', 1)->orderBy('created_at', 'desc')->paginate(5);
         $title = User::find($id)->name;
         return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         //
         $user = $request->user();
-        $posts = Posts::where('author_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+        $posts = Recipes::where('author_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $title = $user->name;
         return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         //
         $user = $request->user();
-        $posts = Posts::where('author_id', $user->id)->where('active', 0)->orderBy('created_at', 'desc')->paginate(5);
+        $posts = Recipes::where('author_id', $user->id)->where('active', 0)->orderBy('created_at', 'desc')->paginate(5);
         $title = $user->name;
         return view('pages.blog')->with('posts', $posts)->with('title', $title);
     }
