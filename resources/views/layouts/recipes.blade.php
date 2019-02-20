@@ -11,44 +11,37 @@
     <link href="https://use.fontawesome.com/aab054733b.css" media="all" rel="stylesheet">
 </head>
 <body>
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
+<ul>
+    @if (Auth::guest())
+        <li>
+            <a href="{{ url('/login') }}">Войти</a>
+        </li>
+        <li>
+            <a href="{{ url('/register') }}">Зарегистрироваться</a>
+        </li>
+    @else
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+               aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                @if (Auth::user()->canPost())
                     <li>
-                        <a href="{{ url('/login') }}">Логин</a>
+                        <a href="{{ url('/cookbook/new-recipe') }}">Добавить рецепт</a>
                     </li>
                     <li>
-                        <a href="{{ url('/register') }}">Регистрация</a>
-                    </li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            @if (Auth::user()->canPost())
-                                <li>
-                                    <a href="{{ url('/blog/new-post') }}">Добавить пост</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/user/'.Auth::id().'/posts') }}">Мои посты</a>
-                                </li>
-                            @endif
-                            <li>
-                                <a href="{{ url('/user/'.Auth::id()) }}">Мой профиль</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/logout') }}">Выйти</a>
-                            </li>
-                        </ul>
+                        <a href="{{ url('/user/'.Auth::id().'/recipes') }}">Мои рецепты</a>
                     </li>
                 @endif
+                <li>
+                    <a href="{{ url('/user/'.Auth::id()) }}">Мой профиль</a>
+                </li>
+                <li>
+                    <a href="{{ url('/logout') }}">Выйти</a>
+                </li>
             </ul>
-        </div>
-    </div>
-</nav>
+        </li>
+    @endif
+</ul>
 <div class="container">
     @if (Session::has('message'))
         <div class="flash alert-info">
@@ -88,11 +81,9 @@
     </div>
 </div>
 @include('includes.footer')
-
-<script src="{{url(elixir('js/jquery.min.js'))}}"></script>
-<script src="{{url(elixir('js/main.js'))}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+{{--<script src="{{url(elixir('js/jquery.min.js'))}}"></script>--}}
+{{--<script src="{{url(elixir('js/main.js'))}}"></script>--}}
 </body>
 </html>
-
-{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--}}
-{{--<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>--}}

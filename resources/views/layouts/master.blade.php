@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{url(elixir('css/main.css'))}}">
     <script src="https://use.fontawesome.com/aab054733b.js"></script>
     <link href="https://use.fontawesome.com/aab054733b.css" media="all" rel="stylesheet">
-    <link rel="shortcut icon" href="/favicon.png" type="image/png">
 </head>
 <body>
 

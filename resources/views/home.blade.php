@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Будет вкусно!')
+@section('title', 'Katrin fon Keks')
 
 @section('content')
 

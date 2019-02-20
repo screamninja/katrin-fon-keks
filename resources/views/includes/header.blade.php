@@ -15,18 +15,18 @@
         <div class="header-bottom-row">
             <div class="container">
                 <div class="header-bottom-row-wrapper">
-                    <a href="#" class="page-logo">
-                        <img src="img/logo-cat.png" alt="" class="page-logo-cat">
-                        <span class="page-logo-text">Будет вкусно!</span>
+                    <a href="/" class="page-logo">
+                        <img src="image/logo-cat.png" alt="" class="page-logo-cat">
+                        <span class="page-logo-text">Катрин фон Кекс</span>
                     </a>
                     <nav class="header-nav">
                         <ul class="header-menu">
                             <li>
                                 <a class="header-link link-home" href="/">
-                                    <svg class="header-icon-home"><use xlink:href="img/svg/symbol-defs.svg#icon-home" /></svg>
+                                    <svg class="header-icon-home"><use xlink:href="image/svg/symbol-defs.svg#icon-home" /></svg>
                                 </a>
                             </li>
-                            <li> <a class="header-link header-link-special" href="#"> Акции</a></li>
+                            <li> <a class="header-link header-link-special" href="#">Акции</a></li>
                             <li class="header-dropdown">
                                 <a class="header-link header-link-dropdown" href="#">
                                     <span class="header-icon-dropdown"></span>
@@ -45,7 +45,7 @@
                             <li><a class="header-link" href="#">Десерты</a></li>
                             <li><a class="header-link header-cake-icon" href="#"><span></span>Начинки</a></li>
                             <li><a class="header-link" href="#">Портфолио</a></li>
-                            <li><a class="header-link header-link-bold" href="/blog">Рецепты от Катрин</a></li>
+                            <li><a class="header-link header-link-bold" href="/cookbook">Рецепты от Катрин</a></li>
                             <li><a class="header-link" href="/about">О нас</a></li>
                         </ul>
                     </nav>
