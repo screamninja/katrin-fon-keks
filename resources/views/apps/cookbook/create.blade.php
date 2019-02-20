@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.cookbook')
 @section('title')
-    Добавить новый пост
+    Добавить новый рецепт
 @endsection
 @section('content')
     <script type="text/javascript" src="{{ asset('https://cloud.tinymce.com/5/tinymce.min.js') }}"></script>
@@ -39,7 +39,7 @@
         });
         tinymce.init(editor_config);
     </script>
-    <form action="/blog/new-post" method="post">
+    <form action="/cookbook/new-recipe" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <input required="required" value="{{ old('title') }}" placeholder="Введите название" type="text"
@@ -51,6 +51,6 @@
             </label>
         </div>
         <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
-        <input type="submit" name='save' class="btn btn-default" value="Сохранить черновик"/>
+        <input type="submit" name='publish_private' class="btn btn-default" value="Опубликовать приватно"/>
     </form>
 @endsection

@@ -1,40 +1,40 @@
-@extends('layouts.master')
+@extends('layouts.cookbook')
 @section('title')
-    @if($post)
-        {{ $post->title }}
-        @if(!Auth::guest() && ($post->author_id === Auth::user()->id || Auth::user()->isAdmin()))
+    @if($recipe)
+        {{ $recipe->title }}
+        @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
             <button class="btn" style="float: right"><a
-                        href="{{ url('blog/edit/'.$post->slug)}}">Редактировать пост</a></button>
+                        href="{{ url('cookbook/edit/'.$recipe->slug)}}">Редактировать рецепт</a></button>
         @endif
     @else
         Страница не существует
     @endif
 @endsection
 @section('title-meta')
-    <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} Автор: <a
-                href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>
+    <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор: <a
+                href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a></p>
 @endsection
 @section('content')
-    @if($post)
+    @if($recipe)
         <div>
-            {!! $post->body !!}
+            {!! $recipe->body !!}
         </div>
         <div>
             <h2>Оставить комментарий</h2>
         </div>
         @if(Auth::guest())
-            <p>Залогинтесь, чтоб комментрировать</p>
+            <p>Войдите под своей учётной записью, чтобы оставить комментарий</p>
         @else
             <div class="panel-body">
                 <form method="post" action="blog/comment/add">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="on_post" value="{{ $post->id }}">
-                    <input type="hidden" name="slug" value="{{ $post->slug }}">
+                    <input type="hidden" name="on_post" value="{{ $recipe->id }}">
+                    <input type="hidden" name="slug" value="{{ $recipe->slug }}">
                     <div class="form-group">
                         <textarea required="required" placeholder="Введите свой комментарий" name="body"
                                   class="form-control"></textarea>
                     </div>
-                    <input type="submit" name='post_comment' class="btn btn-success" value="Опубликовать"/>
+                    <input type="submit" name='recipe_comment' class="btn btn-success" value="Опубликовать"/>
                 </form>
             </div>
         @endif
@@ -58,6 +58,8 @@
             @endif
         </div>
     @else
-        404 ошибка
+        Ошибка 404.
+
+        Что-то пошло не так... :(
     @endif
 @endsection

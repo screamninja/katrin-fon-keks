@@ -12,24 +12,24 @@
                 <table class="table-padding">
                     <style>.table-padding td { padding: 3px 8px; }</style>
                     <tr>
-                        <td>Всего постов</td>
-                        <td> {{$posts_count}}</td>
-                        @if($author && $posts_count)
-                            <td><a href="{{ url('/my-all-posts')}}">Показать все</a></td>
+                        <td>Всего рецептов</td>
+                        <td> {{$recipes_count}}</td>
+                        @if($author && $recipes_count)
+                            <td><a href="{{ url('/my-all-recipes')}}">Показать все</a></td>
                         @endif
                     </tr>
                     <tr>
-                        <td>Опубликованные посты</td>
-                        <td>{{$posts_active_count}}</td>
-                        @if($posts_active_count)
-                            <td><a href="{{ url('/user/'.$user->id.'/posts')}}">Показать все</a></td>
+                        <td>Опубликованные рецепт</td>
+                        <td>{{$recipes_active_count}}</td>
+                        @if($recipes_active_count)
+                            <td><a href="{{ url('/user/'.$user->id.'/recipes')}}">Показать все</a></td>
                         @endif
                     </tr>
                     <tr>
-                        <td>Постов в Черновиках</td>
-                        <td>{{$posts_draft_count}}</td>
-                        @if($author && $posts_draft_count)
-                            <td><a href="{{ url('my-drafts')}}">Показать все</a></td>
+                        <td>Приватных рецептов</td>
+                        <td>{{$recipes_draft_count}}</td>
+                        @if($author && $recipes_draft_count)
+                            <td><a href="{{ url('my-private-recipes')}}">Показать все</a></td>
                         @endif
                     </tr>
                 </table>
@@ -40,17 +40,17 @@
         </ul>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Последние посты</h3></div>
+        <div class="panel-heading"><h3>Последние рецепты</h3></div>
         <div class="panel-body">
-            @if(!empty($latest_posts[0]))
-                @foreach($latest_posts as $latest_post)
+            @if(!empty($latest_recipe[0]))
+                @foreach($latest_recipes as $latest_recipe)
                     <p>
-                        <strong><a href="{{ url('/'.$latest_post->slug) }}">{{ $latest_post->title }}</a></strong>
-                        <span class="well-sm">От {{ $latest_post->created_at->format('M d,Y \a\t h:i a') }}</span>
+                        <strong><a href="{{ url('/'.$latest_recipe->slug) }}">{{ $latest_recipe->title }}</a></strong>
+                        <span class="well-sm">От {{ $latest_recipe->created_at->format('M d,Y \a\t h:i a') }}</span>
                     </p>
                 @endforeach
             @else
-                <p>У вас нет ещё постов.</p>
+                <p>У вас ещё нет рецептов.</p>
             @endif
         </div>
     </div>
@@ -61,15 +61,15 @@
                 @foreach($latest_comments as $latest_comment)
                     <div class="list-group-item">
                         <p>{{ $latest_comment->body }}</p>
-                        <p>On {{ $latest_comment->created_at->format('M d,Y \a\t h:i a') }}</p>
-                        <p>On post <a
-                                    href="{{ url('/'.$latest_comment->post->slug) }}">{{ $latest_comment->post->title }}</a>
+                        <p>{{ $latest_comment->created_at->format('M d,Y \a\t h:i a') }}</p>
+                        <p>в рецепте <a
+                                    href="{{ url('/'.$latest_comment->recipe->slug) }}">{{ $latest_comment->recipe->title }}</a>
                         </p>
                     </div>
                 @endforeach
             @else
                 <div class="list-group-item">
-                    <p>У вас нет комментариев. Ваши последние 5 комментариев будут выведены здесь</p>
+                    <p>У вас нет комментариев. Ваши последние 5 комментариев будут выведены здесь.</p>
                 </div>
             @endif
         </div>

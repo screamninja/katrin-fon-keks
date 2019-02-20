@@ -24,7 +24,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                @if (Auth::user()->canPost())
+                @if (Auth::user()->canPublish())
                     <li>
                         <a href="{{ url('/cookbook/new-recipe') }}">Добавить рецепт</a>
                     </li>
@@ -74,16 +74,9 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <p>Copyright © 2019 | <a href="http://screamnijna.info">Scream Ninja Dev</a></p>
-        </div>
-    </div>
 </div>
 @include('includes.footer')
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-{{--<script src="{{url(elixir('js/jquery.min.js'))}}"></script>--}}
-{{--<script src="{{url(elixir('js/main.js'))}}"></script>--}}
 </body>
 </html>

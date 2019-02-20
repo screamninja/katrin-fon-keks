@@ -6,27 +6,27 @@
                 <ul class="footer-social-list">
                     <li>
                         <a href="#" class="footer-social-link">
-                            <svg class="footer-social-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-instagram"/></svg>
+                            <svg class="footer-social-icon"><use xlink:href="image/svg/symbol-defs.svg#icon-instagram"/></svg>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="footer-social-link">
-                            <svg class="footer-social-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-vk"/></svg>
+                            <svg class="footer-social-icon"><use xlink:href="image/svg/symbol-defs.svg#icon-vk"/></svg>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="footer-social-link">
-                            <svg class="footer-social-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-mail"/></svg>
+                            <svg class="footer-social-icon"><use xlink:href="image/svg/symbol-defs.svg#icon-mail"/></svg>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="footer-social-link">
-                            <svg class="footer-social-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-phone"/></svg>
+                            <svg class="footer-social-icon"><use xlink:href="image/svg/symbol-defs.svg#icon-phone"/></svg>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="footer-social-link">
-                            <svg class="footer-social-icon"><use xlink:href="img/svg/symbol-defs.svg#icon-telegram"/></svg>
+                            <svg class="footer-social-icon"><use xlink:href="image/svg/symbol-defs.svg#icon-telegram"/></svg>
                         </a>
                     </li>
                 </ul>
@@ -35,7 +35,7 @@
             <div class="footer-column">
                 <div class="footer-icon-wrapper">
                     <div class="footer-icon"></div>
-                    <p class="footer-copyright">Coryright text</p>
+                    <p class="footer-copyright">&#9400; <?php echo date('o'); ?> Катрин фон Кекс. Создано <a href="http://screamninja.info">ScreamNinja Dev</a> </p>
                 </div>
             </div>
             <div class="footer-column">

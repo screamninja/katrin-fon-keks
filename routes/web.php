@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
  * Main routes
  */
 Route::get('/', 'HomeController@home');
-Route::get('/blog', 'Apps\Blog\PostController@index');
+Route::get('/cookbook', 'Apps\Cookbook\RecipeController@index');
 
 /**
  * Authentication routes
@@ -45,28 +45,28 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
 /**
- * Blog routes
+ * Cookbook routes
  */
 // Check logged user
 Route::group(['middleware' => ['auth']], function () {
-    // Show new post
-    Route::get('blog/new-post', 'Apps\Blog\PostController@create');
-    // Save new post
-    Route::post('blog/new-post', 'Apps\Blog\PostController@store');
-    // Edit post
-    Route::get('blog/edit/{slug}', 'Apps\Blog\PostController@edit');
-    // Update post
-    Route::post('blog/update', 'Apps\Blog\PostController@update');
-    // Delete post
-    Route::get('blog/delete/{id}', 'Apps\Blog\PostController@destroy');
-    // Show all user posts
-    Route::get('blog/my-all-posts', 'Apps\Blog\UserController@userPostsAll');
-    // Show user drafts
-    Route::get('blog/my-drafts', 'Apps\Blog\UserController@userPostsDraft');
+    // Show new recipe
+    Route::get('cookbook/new-recipe', 'Apps\Cookbook\RecipeController@create');
+    // Save new recipe
+    Route::post('cookbook/new-recipe', 'Apps\Cookbook\RecipeController@store');
+    // Edit recipe
+    Route::get('cookbook/edit/{slug}', 'Apps\Cookbook\RecipeController@edit');
+    // Update recipe
+    Route::post('cookbook/update', 'Apps\Cookbook\RecipeController@update');
+    // Delete recipe
+    Route::get('cookbook/delete/{id}', 'Apps\Cookbook\RecipeController@destroy');
+    // Show all user recipe
+    Route::get('cookbook/my-all-recipes', 'Apps\Cookbook\UserController@userPostsAll');
+    // Show user private recipe
+    Route::get('cookbook/my-private-recipes', 'Apps\Cookbook\UserController@userPostsDraft');
     // Add comment
-    Route::post('blog/comment/add', 'Apps\Blog\CommentController@store');
+    Route::post('cookbook/comment/add', 'Apps\Cookbook\CommentController@store');
     // Delete comment
-    Route::post('blog/comment/delete/{id}', 'Apps\Blog\CommentController@distroy');
+    Route::post('cookbook/comment/delete/{id}', 'Apps\Cookbook\CommentController@distroy');
 });
 
 /**
@@ -77,4 +77,5 @@ Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // Show posts list
 Route::get('user/{id}/posts', 'UserController@userPosts')->where('id', '[0-9]+');
 // Show one post
-Route::get('blog/{slug}', ['as' => 'post', 'uses' => 'Apps\Blog\PostController@show'])->where('slug', '[A-Za-z0-9-_]+');
+Route::get('cookbook/{slug}', ['as' => 'recipe', 'uses' => 'Apps\Cookbook\RecipeController@show'])
+    ->where('slug', '[A-Za-z0-9-_]+');

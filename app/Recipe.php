@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Recipes extends Model
+class Recipe extends Model
 {
     // Forbids changing columns.
     protected $guarded = [];
@@ -12,7 +12,7 @@ class Recipes extends Model
     // Return all comments to post.
     public function comments()
     {
-        return $this->hasMany('App\Comments', 'on_post');
+        return $this->hasMany('App\Comments', 'on_recipe');
     }
 
     // Return author (user) profile.

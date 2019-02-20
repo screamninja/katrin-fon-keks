@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Recipes;
+use App\Recipe;
 use App\Comments;
 use Redirect;
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $input['from_user'] = $request->user()->id;
-        $input['on_post'] = $request->input('on_post');
+        $input['on_recipe'] = $request->input('on_recipe');
         $input['body'] = $request->input('body');
         $slug = $request->input('slug');
         Comments::create($input);

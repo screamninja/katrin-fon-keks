@@ -17,5 +17,6 @@
                 <a href="" class="banners-btn">Заказать сейчас<span></span></a>
             </div>
         </div>
+
     </div>
 </div>

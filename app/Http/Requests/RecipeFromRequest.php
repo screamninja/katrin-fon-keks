@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Http\Request;
 
-class PostFromRequest extends Request
+class RecipeFromRequest extends Request
 {
     /**
      * Check out of user is authorized to make this request.
@@ -13,7 +13,7 @@ class PostFromRequest extends Request
      */
     public function authorized(): bool
     {
-        if ($this->user()->canPost()) {
+        if ($this->user()->canPublish()) {
             return true;
         }
         return false;
@@ -27,7 +27,7 @@ class PostFromRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required|unique:recipes|max:255',
             'title' => array('Regex:/^[A-Za-z0-9 ]+$/'),
             'body' => 'required',
         ];

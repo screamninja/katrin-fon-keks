@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.cookbook')
 @section('title')
-    Редактировать пост
+    Редактировать рецепт
 @endsection
 @section('content')
     <script type="text/javascript" src="{{ asset('https://cloud.tinymce.com/5/tinymce.min.js') }}"></script>
@@ -39,29 +39,29 @@
         });
         tinymce.init(editor_config);
     </script>
-    <form method="post" action='{{ url('/blog/update') }}'>
+    <form method="post" action='{{ url('/cookbook/update') }}'>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">
+        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}{{ old('recipe_id') }}">
         <div class="form-group">
-            <input required="required" placeholder="Enter title here" type="text" name="title" class="form-control"
-                   value="@if(!old('title')){{$post->title}}@endif{{ old('title') }}"/>
+            <input required="required" placeholder="Введите название здесь" type="text" name="title" class="form-control"
+                   value="@if(!old('title')){{$recipe->title}}@endif{{ old('title') }}"/>
         </div>
         <div class="form-group">
             <label>
 <textarea name='body' class="form-control">
 @if(!old('body'))
-        {!! $post->body !!}
+        {!! $recipe->body !!}
     @endif
     {!! old('body') !!}
 </textarea>
             </label>
         </div>
-        @if($post->active === '1')
+        @if($recipe->privacy === '1')
             <input type="submit" name='publish' class="btn btn-success" value="Обновить"/>
         @else
             <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
         @endif
-        <input type="submit" name='save' class="btn btn-default" value="Сохранить как черновик"/>
-        <a href="{{  url('blog/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Удалить</a>
+            <input type="submit" name='publish_private' class="btn btn-default" value="Опубликовать приватно"/>
+            <a href="{{  url('cookbook/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Удалить</a>
     </form>
 @endsection

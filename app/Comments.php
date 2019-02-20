@@ -16,8 +16,8 @@ class Comments extends Model
     }
 
     // Return post of any comment.
-    public function post()
+    public function recipe()
     {
-        return $this->belongsTo('App\Recipes', 'on_post');
+        return $this->belongsTo('App\Recipe', 'on_post');
     }
 }
