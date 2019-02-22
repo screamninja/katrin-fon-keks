@@ -1,4 +1,4 @@
-@extends('layouts.cookbook')
+@extends('layouts.recipes')
 @section('title')
     Добавить новый рецепт
 @endsection

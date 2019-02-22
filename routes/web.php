@@ -60,9 +60,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Delete recipe
     Route::get('cookbook/delete/{id}', 'Apps\Cookbook\RecipeController@destroy');
     // Show all user recipe
-    Route::get('cookbook/my-all-recipes', 'Apps\Cookbook\UserController@userPostsAll');
+    Route::get('cookbook/my-all-recipes', 'Apps\Cookbook\UserController@userRecipesAll');
     // Show user private recipe
-    Route::get('cookbook/my-private-recipes', 'Apps\Cookbook\UserController@userPostsDraft');
+    Route::get('cookbook/my-private-recipes', 'Apps\Cookbook\UserController@userPrivateRecipes');
     // Add comment
     Route::post('cookbook/comment/add', 'Apps\Cookbook\CommentController@store');
     // Delete comment
@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
 // Author profiles
 Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // Show posts list
-Route::get('user/{id}/posts', 'UserController@userPosts')->where('id', '[0-9]+');
+Route::get('user/{id}/posts', 'UserController@userRecipes')->where('id', '[0-9]+');
 // Show one post
 Route::get('cookbook/{slug}', ['as' => 'recipe', 'uses' => 'Apps\Cookbook\RecipeController@show'])
     ->where('slug', '[A-Za-z0-9-_]+');

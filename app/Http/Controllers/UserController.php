@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     // Вывод приватных рецептов текущего активного пользователя
-    public function userRecipesDraft(Request $request)
+    public function userPrivateRecipes(Request $request)
     {
         //
         $user = $request->user();
@@ -52,7 +52,7 @@ class UserController extends Controller
             $data['author'] = null;
         }
         $data['comments_count'] = $data['user']->comments->count();
-        $data['recipes_count'] = $data['user']->recipes->count();
+        $data['recipes_count'] = $data['user']->recipe->count();
         $data['recipes_privacy_count'] = $data['user']->recipes->where('privacy', '1')->count();
         $data['recipes_draft_count'] = $data['recipes_count'] - $data['recipes_privacy_count'];
         $data['latest_recipes'] = $data['user']->recipes->where('privacy', '1')->take(5);

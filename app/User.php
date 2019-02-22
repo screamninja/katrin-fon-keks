@@ -31,7 +31,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token'];
 
     // From one to many user recipe.
-    public function posts()
+    public function recipes()
     {
         return $this->hasMany('App\Recipe', 'author_id');
     }

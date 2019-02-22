@@ -19,14 +19,14 @@ class RecipeController extends Controller
         // Page title
         $title = 'Рецепты от Катрин';
         // Return cookbook.blade.php from resources/views/apps/cookbook
-        return view('pages.cookbook')->withrecipes($recipes)->withTitle($title);
+        return view('pages.cookbook')->withRecipes($recipes)->withTitle($title);
     }
 
     // Create recipe
     public function create(Request $request)
     {
-        // If user can post recipe (author or admin) return view for creat recipe
-        if ($request->user()->canrecipe()) {
+        // If user can publish recipe (author or admin) return view for creat recipe
+        if ($request->user()->canPublish()) {
             return view('apps.cookbook.create');
         }
         return redirect('/cookbook')->withErrors('У вас нет достаточных прав для написания рецептов!');
@@ -36,10 +36,11 @@ class RecipeController extends Controller
     public function store(RecipeFromRequest $request)
     {
         $recipe = new Recipe();
+        $recipe->author_id = Auth::user()->id;
         $recipe->title = $request->get('title');
         $recipe->body = $request->get('body');
+        $recipe->themes = $request->get('themes');
         $recipe->slug = str_slug($recipe->title);
-        $recipe->author_id = Auth::user()->id;
         if ($request->has('save')) {
             $recipe->privacy = 0;
             $message = 'Рецепт успешно сохранён приватно!';
