@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
  * Main routes
  */
 Route::get('/', 'HomeController@home');
-Route::get('/cookbook', 'Apps\Cookbook\RecipeController@index');
+Route::get('/cookbook', 'Apps\Cookbook\RecipeController@cookbook');
+Route::get('/about', 'PagesController@about');
 
 /**
  * Authentication routes

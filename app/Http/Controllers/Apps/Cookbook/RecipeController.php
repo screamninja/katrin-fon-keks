@@ -12,7 +12,7 @@ class RecipeController extends Controller
 {
 
     // Show last recipes on main page
-    public function index()
+    public function cookbook()
     {
         // Take 5 recipes from Db, active and last
         $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);

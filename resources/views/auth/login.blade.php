@@ -1,4 +1,12 @@
 @extends('layouts.master')
+@section('title', 'Авторизация')
+@section('header_class', 'page-header')
+
+@section('nav')
+
+    @include('includes.nav')
+
+@endsection
 
 @section('content')
 <div class="container">

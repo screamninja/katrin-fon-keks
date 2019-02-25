@@ -12,11 +12,14 @@
 </head>
 <body>
 
+    @include('includes.header')
+
     @yield('content')
-    @include('includes.newitems')
+
     @include('includes.footer')
 
     <script src="{{url(elixir('js/jquery.min.js'))}}"></script>
     <script src="{{url(elixir('js/main.js'))}}"></script>
+
 </body>
 </html>

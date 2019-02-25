@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 class PagesController extends Controller
 {
-    public function cookbook()
+    public function about()
     {
-        return view('pages.cookbook');
+        return view('pages.about');
     }
 }
