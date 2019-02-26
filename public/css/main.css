@@ -112,7 +112,7 @@ img {
   margin: 0 auto; }
 
 .page-header {
-  height: 30vh;
+  height: 10vh;
   background-size: cover;
   position: relative; }
 
@@ -486,7 +486,6 @@ img {
 .banner-info {
   font-weight: 300;
   font-size: 12px;
-  font-weight: 300;
   color: #636363;
   letter-spacing: 1px;
   margin-bottom: 20px; }
@@ -498,6 +497,47 @@ img {
   color: #f7941d;
   text-transform: uppercase;
   margin: 0; }
+
+.content {
+  width: 100%;
+  height: 750px;
+  background-color: #6C488F;
+  /*background-image: url(../image/banner.jpg);*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-top: 45px;
+  margin-bottom: 30px;
+  border: 25px solid #ffffff;
+  padding: 50px 50px 50px 50px; }
+
+.content-large-text {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #00b8b8;
+  margin-top: 0;
+  margin-bottom: 15px;
+  word-wrap: break-word; }
+
+.content-info {
+  font-weight: 300;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  word-wrap: break-word; }
+
+.content-top-p {
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #f7941d;
+  text-transform: uppercase;
+  margin: 0;
+  word-wrap: break-word; }
 
 .page-footer {
   padding: 25px 0;

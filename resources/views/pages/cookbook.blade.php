@@ -17,7 +17,7 @@
     @if ( !$recipes->count() )
         Рецептов пока нет...
     @else
-        <div class="">
+        <div class="container content">
             @foreach( $recipes as $recipe )
                 <div class="list-group">
                     <div class="list-group-item">

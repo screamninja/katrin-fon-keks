@@ -10,11 +10,21 @@
 
 @section('content')
 
-    <div class="about">
-        <h3>О нас</h3>
-        <p class="discription">
-            Здесь пока ничего нет...
-        </p>
+    <div class="container">
+        <div class="content">
+            <div class="content-text">
+                <p class="content-top-p">Новинка</p>
+                <p class="content-large-text">О нас</p>
+                <p class="content-info">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
+                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
+                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
+                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
+                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</p>
+                <p class="content-info">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFfFFf</p>
+            </div>
+        </div>
     </div>
 
     @include('includes.newitems')
