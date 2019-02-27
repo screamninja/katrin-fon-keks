@@ -1,20 +1,27 @@
-@extends('layouts.cookbook')
+@extends('layouts.recipes')
 @section('title')
     @if($recipe)
-        {{ $recipe->title }}
-        @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
-            <button class="btn" style="float: right"><a
-                        href="{{ url('cookbook/edit/'.$recipe->slug)}}">Редактировать рецепт</a></button>
-        @endif
+        {{ $recipe->title.' - Катрин фон Кекс' }}
     @else
         Страница не существует
     @endif
 @endsection
-@section('title-meta')
-    <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор: <a
-                href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a></p>
+@section('header_class', 'page-header')
+
+@section('nav')
+    @include('includes.nav')
 @endsection
+
+@section('title-meta')
+    <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор: <a href="{{ url('/user/'.$recipe->author_id)}}">
+            {{ $recipe->author->name }}</a></p>
+@endsection
+
 @section('content')
+    @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
+        <button class="btn" style="float: right"><a
+                    href="{{ url('cookbook/edit/'.$recipe->slug)}}">Редактировать рецепт</a></button>
+    @endif
     @if($recipe)
         <div>
             {!! $recipe->body !!}

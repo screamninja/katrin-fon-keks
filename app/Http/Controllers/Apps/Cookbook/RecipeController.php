@@ -18,7 +18,7 @@ class RecipeController extends Controller
         $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);
         // Page title
         $title = 'Рецепты от Катрин';
-        // Return cookbook.blade.php from resources/views/apps/cookbook
+        // Return cookbook.blade.php from resources/views/pages/cookbook
         return view('pages.cookbook')->withRecipes($recipes)->withTitle($title);
     }
 
