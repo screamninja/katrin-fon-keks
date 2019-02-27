@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="header-bottom-row-wrapper">
                     <a href="/" class="page-logo">
-                        <img src="image/logo-cat.png" alt="Катрин фон Кекс Лого" class="page-logo-cat">
+                        <img src="{{ asset('/image/logo-cat.png') }}" alt="Катрин фон Кекс Лого" class="page-logo-cat">
                         <span class="page-logo-text">Катрин фон Кекс</span>
                     </a>
 
