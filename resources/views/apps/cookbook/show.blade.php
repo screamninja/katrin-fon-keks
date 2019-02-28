@@ -33,7 +33,7 @@
             <p>Войдите под своей учётной записью, чтобы оставить комментарий</p>
         @else
             <div class="panel-body">
-                <form method="post" action="blog/comment/add">
+                <form method="post" action="{{ url('cookbook/comment/add') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="on_post" value="{{ $recipe->id }}">
                     <input type="hidden" name="slug" value="{{ $recipe->slug }}">

@@ -62,6 +62,6 @@
             <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
         @endif
             <input type="submit" name='publish_private' class="btn btn-default" value="Опубликовать приватно"/>
-            <a href="{{  url('cookbook/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Удалить</a>
+            <a href="{{  url('cookbook/delete/'.$recipe->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Удалить</a>
     </form>
 @endsection

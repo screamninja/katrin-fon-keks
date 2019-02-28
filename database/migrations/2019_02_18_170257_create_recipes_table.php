@@ -25,7 +25,7 @@ class CreateRecipesTable extends Migration
             $table->unsignedBigInteger('themes');
             $table->string('slug')->unique();
             $table->boolean('privacy');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 

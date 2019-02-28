@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     @if ( !$recipes->count() )
-        Рецептов пока нет...
+        <div class="container content">Рецептов пока нет...</div>
     @else
         <div class="container content">
             @foreach( $recipes as $recipe )

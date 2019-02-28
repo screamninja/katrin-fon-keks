@@ -30,26 +30,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
-    // From one to many user recipe.
+    // From one to many user recipe
     public function recipes()
     {
         return $this->hasMany('App\Recipe', 'author_id');
     }
 
-    // From one to many user comments.
+    // From one to many user comments
     public function comments()
     {
         return $this->hasMany('App\Comments', 'from_user');
     }
 
-    // Check who can publish.
+    // Check who can publish
     public function canPublish()
     {
         $role = $this->role;
         return $role === 'author' || $role === 'admin';
     }
 
-    // Check is admin.
+    // Check is admin
     public function isAdmin()
     {
         $role = $this->role;

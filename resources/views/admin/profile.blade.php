@@ -1,9 +1,14 @@
-@extends('layouts.master')
+@extends('layouts.recipes')
 @section('title')
     {{ $user->name }}
 @endsection
+@section('header_class', 'page-header')
+
+@section('nav')
+    @include('includes.nav')
+@endsection
 @section('content')
-    <div>
+    <div class="container">
         <ul class="list-group">
             <li class="list-group-item">
                 Joined on {{$user->created_at->format('M d,Y \a\t h:i a') }}
@@ -15,13 +20,13 @@
                         <td>Всего рецептов</td>
                         <td> {{$recipes_count}}</td>
                         @if($author && $recipes_count)
-                            <td><a href="{{ url('/my-all-recipes')}}">Показать все</a></td>
+                            <td><a href="{{ url('/all-recipes')}}">Показать все</a></td>
                         @endif
                     </tr>
                     <tr>
                         <td>Опубликованные рецепт</td>
-                        <td>{{$recipes_active_count}}</td>
-                        @if($recipes_active_count)
+                        <td>{{$recipes_privacy_count}}</td>
+                        @if($recipes_privacy_count)
                             <td><a href="{{ url('/user/'.$user->id.'/recipes')}}">Показать все</a></td>
                         @endif
                     </tr>
