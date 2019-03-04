@@ -56,7 +56,7 @@
 </textarea>
             </label>
         </div>
-        @if($recipe->privacy === '1')
+        @if($recipe->privacy == 1)
             <input type="submit" name='publish' class="btn btn-success" value="Обновить"/>
         @else
             <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>

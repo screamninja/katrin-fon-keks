@@ -14,7 +14,7 @@
             @foreach( $recipes as $recipe )
                 <div class="list-group">
                     <div class="list-group-item">
-                        <h3><a href="{{ url('/cookbook/'.$recipe->slug) }}">{{ $recipe->title }}</a>
+                        <h3><a href="{{ url('/'.$recipe->slug) }}">{{ $recipe->title }}</a>
                             @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
                                 @if($recipe->active === '1')
                                     <button class="btn" style="float: right"><a
@@ -23,7 +23,7 @@
                                 @else
                                     <button class="btn" style="float: right"><a
                                                 href="{{ url('cookbook/edit/'.$recipe->slug)}}">Редактировать
-                                            черновик</a></button>
+                                            рецепт</a></button>
                                 @endif
                             @endif
                         </h3>

@@ -48,8 +48,8 @@
         <div class="form-group">
             <label>
                 <textarea name='body' class="form-control">{{ old('body') }}</textarea>
-            </label>
-        </div>
+            </label><br>
+        </div><br><br>
         <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
         <input type="submit" name='publish_private' class="btn btn-default" value="Опубликовать приватно"/>
     </form>

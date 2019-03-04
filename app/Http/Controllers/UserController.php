@@ -27,7 +27,7 @@ class UserController extends Controller
         $user = $request->user();
         $recipes = Recipe::where('author_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            ->paginate(5);
         $title = $user->name;
         return view('pages.cookbook')
             ->with('recipes', $recipes)

@@ -41,7 +41,7 @@ class RecipeController extends Controller
         $recipe->body = $request->get('body');
         $recipe->themes = $request->get('themes');
         $recipe->slug = str_slug($recipe->title);
-        if ($request->has('save')) {
+        if ($request->has('publish_private')) {
             $recipe->privacy = 0;
             $message = 'Рецепт успешно сохранён приватно!';
         } else {
@@ -57,7 +57,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::where('slug', $slug)->first();
         if (!$recipe) {
-            return redirect('cookbook/')->withErrors('Запрошенная страница не найдена!');
+            return redirect('/')->withErrors('Запрошенная страница не найдена!');
         }
         $comments = $recipe->comments;
         return view('apps.cookbook.show')->withRecipe($recipe)->withComments($comments);
@@ -69,7 +69,7 @@ class RecipeController extends Controller
         $recipe = Recipe::where('slug', $slug)->first();
         if ($recipe && ($request->user()->id === $recipe->author_id || $request->user()->isAdmin()))
             return view('apps.cookbook.edit')->with('recipe', $recipe);
-        return redirect('cookbook/')->withErrors('у вас нет достаточных прав!');
+        return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');
     }
 
     // Update recipe
@@ -89,10 +89,10 @@ class RecipeController extends Controller
             }
             $recipe->title = $title;
             $recipe->body = $request->input('body');
-            if ($request->has('save')) {
+            if ($request->has('publish_private')) {
                 $recipe->privacy = 0;
                 $message = 'Рецепт успешно сохранён приватно!';
-                $landing = 'cookbook/edit/' . $recipe->slug;
+                $landing = $recipe->slug;
             } else {
                 $recipe->privacy = 1;
                 $message = 'Рецепт успешно обновлён!';

@@ -1,7 +1,7 @@
 @extends('layouts.recipes')
 @section('title')
     @if($recipe)
-        {{ $recipe->title.' - Катрин фон Кекс' }}
+        {{ $recipe->title }}
     @else
         Страница не существует
     @endif
@@ -35,7 +35,7 @@
             <div class="panel-body">
                 <form method="post" action="{{ url('cookbook/comment/add') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="on_post" value="{{ $recipe->id }}">
+                    <input type="hidden" name="on_recipe" value="{{ $recipe->id }}">
                     <input type="hidden" name="slug" value="{{ $recipe->slug }}">
                     <div class="form-group">
                         <textarea required="required" placeholder="Введите свой комментарий" name="body"
