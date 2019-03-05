@@ -27,8 +27,13 @@
                                 @endif
                             @endif
                         </h3>
-                        <p>{{ $recipe->created_at->format('d.m.Y в\ H:i') }} - Автор: <a
-                                    href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a></p>
+                        <p>{{ $recipe->created_at->format('d.m.Y в\ H:i') }} - Автор:
+                            @if(!Auth::guest())
+                                <a href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a>
+                            @else
+                                <a href="{{ url('/user/'.$recipe->author_id.'/recipes')}}">{{ $recipe->author->name }}</a>
+                            @endif
+                        </p>
                     </div>
                     <div class="list-group-item">
                         <article>

@@ -15,6 +15,11 @@ class Theme extends Model
         $this->themes = Config::get('bitwise');
     }
 
+    public function getThemes()
+    {
+        return $this->themes;
+    }
+
     public function getBitwise(int $bit): ?array
     {
         foreach ($this->themes as $binary => $themeName) {

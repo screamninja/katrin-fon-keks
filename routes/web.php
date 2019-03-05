@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 /**
- * User profile routes
+ * Cookbook routes for not auth users
  */
 // Author profiles
 Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');

@@ -49,6 +49,18 @@
             <label>
                 <textarea name='body' class="form-control">{{ old('body') }}</textarea>
             </label><br>
+            {{ Form::select('city_bldg_id', array(
+                0b0000000001 => 'Свадебный',
+                0b0000000010 => 'На День Рождения',
+                0b0000000100 => 'Праздничные',
+                0b0000001000 => 'Мужские',
+                0b0000010000 => 'Детские',
+                0b0000100000 => 'Муссовые',
+                0b0001000000 => 'Чизкейки',
+                0b0010000000 => 'Корпоротивные',
+                0b0100000000 => 'Для любимых',
+                0b1000000000 => '', // Без темы
+            )) }}
         </div><br><br>
         <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
         <input type="submit" name='publish_private' class="btn btn-default" value="Опубликовать приватно"/>

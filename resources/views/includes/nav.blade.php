@@ -28,5 +28,19 @@
         <li><a class="header-link" href="#">Портфолио</a></li>
         <li><a class="header-link header-link-bold" href="/cookbook">Рецепты от Катрин</a></li>
         <li><a class="header-link" href="/about">О нас</a></li>
+        <li class="header-dropdown">
+            <a class="header-link header-link-dropdown" href="#">
+                Кабинет
+            </a>
+            <ul class="header-dropdown-menu">
+                @if (Auth::guest())
+                    <li><a href="/login">Войти</a></li>
+                    <li><a href="/register">Зарегистрироваться</a></li>
+                @else
+                    <li><a href="{{ url('/user/'.Auth::id()) }}">Профиль</a></li>
+                    <li><a href="/logout">Выйти</a></li>
+                @endif
+            </ul>
+        </li>
     </ul>
 </nav>

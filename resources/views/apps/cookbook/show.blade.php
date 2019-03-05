@@ -13,8 +13,13 @@
 @endsection
 
 @section('title-meta')
-    <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор: <a href="{{ url('/user/'.$recipe->author_id)}}">
-            {{ $recipe->author->name }}</a></p>
+    <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор:
+        @if(!Auth::guest())
+            <a href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a>
+        @else
+            <a href="{{ url('/user/'.$recipe->author_id.'/recipes')}}">{{ $recipe->author->name }}</a>
+        @endif
+    </p>
 @endsection
 
 @section('content')
@@ -27,10 +32,10 @@
             {!! $recipe->body !!}
         </div>
         <div>
-            <h2>Оставить комментарий</h2>
+            <h2>Комментарии</h2>
         </div>
         @if(Auth::guest())
-            <p>Войдите под своей учётной записью, чтобы оставить комментарий</p>
+            <p><a href="/login">Войдите</a> под своей учётной записью, чтобы оставить комментарий</p>
         @else
             <div class="panel-body">
                 <form method="post" action="{{ url('cookbook/comment/add') }}">

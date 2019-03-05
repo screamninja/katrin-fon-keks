@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Recipe;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,6 +16,9 @@ class UserController extends Controller
             ->where('privacy', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(5);
+        if (!User::find($id)) {
+            return redirect('/');
+        }
         $title = User::find($id)->name;
         return view('pages.cookbook')
             ->with('recipes', $recipes)
@@ -52,6 +56,9 @@ class UserController extends Controller
     public function profile(Request $request, $id)
     {
         $data['user'] = User::find($id);
+        if (Auth::check()) {
+            return $this->userRecipes($id);
+        }
         if (!$data['user']) {
             return redirect('/');
         }

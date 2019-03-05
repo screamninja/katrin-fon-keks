@@ -19,10 +19,7 @@
         <ul>
             @if (Auth::guest())
                 <li>
-                    <a href="{{ url('/login') }}">Войти</a>
-                </li>
-                <li>
-                    <a href="{{ url('/register') }}">Зарегистрироваться</a>
+                    <a href="{{ url('#') }}">Подписаться на новые рецепты</a>
                 </li>
             @else
                 <li class="dropdown">
