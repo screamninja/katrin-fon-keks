@@ -70,13 +70,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('cookbook/comment/add', 'Apps\Cookbook\CommentController@store');
     // Delete comment
     Route::post('cookbook/comment/delete/{id}', 'Apps\Cookbook\CommentController@distroy');
+    // Author profiles
+    Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
+});
+
+Route::group(['middleware' => ['guest']], function () {
+    // Author profiles
+    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
 });
 
 /**
  * Cookbook routes for not auth users
  */
-// Author profiles
-Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 // Show posts list
 Route::get('user/{id}/recipes', 'UserController@userRecipes')->where('id', '[0-9]+');
 // Show one post

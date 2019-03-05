@@ -56,9 +56,9 @@ class UserController extends Controller
     public function profile(Request $request, $id)
     {
         $data['user'] = User::find($id);
-        if (Auth::check()) {
-            return $this->userRecipes($id);
-        }
+//        if (Auth::check()) {
+//            return $this->userRecipes($id);
+//        }
         if (!$data['user']) {
             return redirect('/');
         }
