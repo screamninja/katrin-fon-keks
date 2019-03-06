@@ -7,6 +7,7 @@
     @include('includes.nav')
 @endsection
 @section('content')
+    {{--Recipes--}}
     @if ( !$recipes->count() )
         <div class="container content">Рецептов пока нет...</div>
     @else
@@ -28,7 +29,7 @@
                             @endif
                         </h3>
                         <p>{{ $recipe->created_at->format('d.m.Y в\ H:i') }} - Автор:
-                            @if(!Auth::guest())
+                            @if(!Auth::guest() && Auth::user()->canPublish())
                                 <a href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a>
                             @else
                                 <a href="{{ url('/user/'.$recipe->author_id.'/recipes')}}">{{ $recipe->author->name }}</a>
@@ -42,8 +43,24 @@
                     </div>
                 </div>
             @endforeach
-            {{--{!! $recipe->render() !!}--}}
+            @endif
+            {{--Comments--}}
+            @if(!empty($comments[0]))
+                <h3>Последние комментарии:</h3>
+                @foreach($comments as $comment)
+                    <div class="list-group-item">
+                        <p>{{ $comment->body }}</p>
+                        <p>от <b>{{ $comment->author->name }}</b> {{ $comment->created_at->format('d.m.Y в H:i') }} к
+                            рецепту <a
+                                    href="{{ url('/'.$comment->recipe->slug) }}">{{ $comment->recipe->title }}</a>
+                        </p>
+                    </div>
+                @endforeach
+            @else
+                <div>
+                    <p>Пока никто не оставил комментариев. Последние 5 комментариев будут выведены здесь.</p>
+                </div>
+            @endif
         </div>
-    @endif
-    @include('includes.newitems')
+        @include('includes.newitems')
 @endsection

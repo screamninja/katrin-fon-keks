@@ -74,10 +74,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 });
 
-Route::group(['middleware' => ['guest']], function () {
-    // Author profiles
-    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
-});
+//Route::group(['middleware' => ['guest']], function () {
+//    // Author profiles
+//    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
+//});
 
 /**
  * Cookbook routes for not auth users

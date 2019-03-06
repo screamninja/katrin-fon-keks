@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Apps\Cookbook;
 
+use App\Comments;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RecipeFromRequest;
 use Illuminate\Support\Facades\Auth;
@@ -14,12 +15,17 @@ class RecipeController extends Controller
     // Show last recipes on main page
     public function cookbook()
     {
-        // Take 5 recipes from Db, active and last
-        $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);
         // Page title
         $title = 'Рецепты от Катрин';
+        // Take 5 recipes from Db, not private and last
+        $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);
+        // Take 5 last comments from Db
+        $comments = Comments::orderBy('created_at', 'desc')->paginate(5);
         // Return cookbook.blade.php from resources/views/pages/cookbook
-        return view('pages.cookbook')->withRecipes($recipes)->withTitle($title);
+        return view('pages.cookbook')
+            ->withTitle($title)
+            ->withRecipes($recipes)
+            ->withComments($comments);
     }
 
     // Create recipe

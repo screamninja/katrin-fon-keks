@@ -24,18 +24,16 @@
             @else
                 <li class="dropdown">
                     <a href="{{ url('/user/'.Auth::id()) }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                       aria-expanded="false">Мой профиль ({{ Auth::user()->name }})<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        @if (Auth::user()->canPublish())
-                            <li>
-                                <a href="{{ url('/cookbook/new-recipe') }}">Добавить рецепт</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/user/'.Auth::id().'/recipes') }}">Мои рецепты</a>
-                            </li>
-                        @endif
                         <li>
-                            <a href="{{ url('/user/'.Auth::id()) }}">Мой профиль</a>
+                            <a href="{{ url('/cookbook/new-recipe') }}">Добавить рецепт</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/user/'.Auth::id().'/recipes') }}">Мои рецепты</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/cookbook/my-private-recipes') }}">Мои приватные рецепты</a>
                         </li>
                         <li>
                             <a href="{{ url('/logout') }}">Выйти</a>

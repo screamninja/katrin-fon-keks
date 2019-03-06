@@ -14,7 +14,7 @@
 
 @section('title-meta')
     <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор:
-        @if(!Auth::guest())
+        @if(!Auth::guest() && Auth::user()->canPublish())
             <a href="{{ url('/user/'.$recipe->author_id)}}">{{ $recipe->author->name }}</a>
         @else
             <a href="{{ url('/user/'.$recipe->author_id.'/recipes')}}">{{ $recipe->author->name }}</a>
@@ -24,7 +24,7 @@
 
 @section('content')
     @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
-        <button class="btn" style="float: right"><a
+        <button class="btn"><a
                     href="{{ url('cookbook/edit/'.$recipe->slug)}}">Редактировать рецепт</a></button>
     @endif
     @if($recipe)

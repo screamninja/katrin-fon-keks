@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function show()
+    {
+        return Comments::all()->take(5);
+    }
+
     // Comments store.
     public function store(Request $request)
     {

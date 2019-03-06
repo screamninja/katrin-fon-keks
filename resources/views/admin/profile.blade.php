@@ -46,7 +46,7 @@
         </ul>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Последние рецепты</h3></div>
+        <div class="panel-heading"><h3>Мои последние рецепты</h3></div>
         <div class="panel-body">
             @if(!empty($latest_recipes[0]))
                 @foreach($latest_recipes as $latest_recipe)
@@ -61,13 +61,13 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading"><h3>Последние комментарии</h3></div>
+        <div class="panel-heading"><h3>Мои последние комментарии</h3></div>
         <div class="list-group">
             @if(!empty($latest_comments[0]))
                 @foreach($latest_comments as $latest_comment)
                     <div class="list-group-item">
                         <p>{{ $latest_comment->body }}</p>
-                        <p>Оставлен {{ $latest_comment->created_at->format('d.m.Y в H:i') }} к рецепту <a
+                        <p>от {{ $latest_comment->created_at->format('d.m.Y в H:i') }} к рецепту <a
                                     href="{{ url('/'.$latest_comment->recipe->slug) }}">{{ $latest_comment->recipe->title }}</a>
                         </p>
                     </div>
