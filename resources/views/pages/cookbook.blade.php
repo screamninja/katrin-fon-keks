@@ -56,6 +56,8 @@
                         </p>
                     </div>
                 @endforeach
+            @elseif(!isset($comments))
+                <div hidden></div>
             @else
                 <div>
                     <p>Пока никто не оставил комментариев. Последние 5 комментариев будут выведены здесь.</p>
