@@ -47,6 +47,10 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 // Password reset
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
+if (!Auth::check()) {
+    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
+}
+
 /**
  * Cookbook routes
  */
@@ -73,11 +77,6 @@ Route::group(['middleware' => ['auth']], function () {
     // Author profiles
     Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 });
-
-//Route::group(['middleware' => ['guest']], function () {
-//    // Author profiles
-//    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
-//});
 
 /**
  * Cookbook routes for not auth users

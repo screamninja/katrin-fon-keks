@@ -35,6 +35,7 @@ class RecipeController extends Controller
         if ($request->user()->canPublish()) {
             return view('apps.cookbook.create');
         }
+        // TODO: настроить вывод ошибок
         return redirect('/cookbook')->withErrors('У вас нет достаточных прав для написания рецептов!');
     }
 
