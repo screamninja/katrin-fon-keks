@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{url(elixir('css/main.css'))}}">
     <script src="https://use.fontawesome.com/aab054733b.js"></script>
     <link href="https://use.fontawesome.com/aab054733b.css" media="all" rel="stylesheet">
+    @yield('link')
 </head>
 <body>
 
@@ -82,6 +83,7 @@
 
 @include('includes.footer')
 
+@yield('script')
 <script src="{{url(elixir('js/jquery.min.js'))}}"></script>
 <script src="{{url(elixir('js/main.js'))}}"></script>
 
