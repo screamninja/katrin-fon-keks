@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateRecipesTable extends Migration
 {
@@ -22,11 +23,12 @@ class CreateRecipesTable extends Migration
                 ->onDelete('cascade');
             $table->string('title')->unique();
             $table->text('body');
-            $table->unsignedBigInteger('themes');
             $table->string('slug')->unique();
             $table->boolean('privacy');
             $table->timestamps();
         });
+
+        Db::statement('ALTER TABLE recipes ADD themes TINYBLOB');
     }
 
     /**

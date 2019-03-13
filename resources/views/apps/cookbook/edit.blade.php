@@ -1,7 +1,13 @@
 @extends('layouts.recipes')
-@section('title')
-    Редактировать рецепт
+@section('title', 'Редактировать рецепт')
+@section('header_class', 'page-header')
+
+@section('nav')
+
+    @include('includes.nav')
+
 @endsection
+
 @section('content')
     <script type="text/javascript" src="{{ asset('https://cloud.tinymce.com/5/tinymce.min.js') }}"></script>
     <script type="text/javascript">

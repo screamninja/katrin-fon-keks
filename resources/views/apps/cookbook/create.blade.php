@@ -1,7 +1,6 @@
 @extends('layouts.recipes')
-@section('title')
-    Добавить новый рецепт
-@endsection
+@section('title', 'Добавить новый рецепт')
+@section('header_class', 'page-header')
 
 @section('link')
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
@@ -12,6 +11,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
+@endsection
+
+@section('nav')
+    @include('includes.nav')
 @endsection
 
 @section('content')
@@ -28,24 +31,24 @@
 
         <div class="form-group">
             <label>
-                <textarea name="body" id="editor">{{ old('body') }}</textarea>
+                <textarea name="body" class="form-control" id="editor">{{ old('body') }}</textarea>
             </label><br>
         </div>
 
         <div class="form-group row">
             <label for="colFormLabel" class="col-3 col-form-label">Выберете тему(ы) для рецепта:</label>
             <div class="col-7">
-                <select class="selectpicker" name="themes" multiple data-live-search="true">
-                    <option value="0b0000000001">Свадебный</option>
-                    <option value="0b0000000010">На День Рождения</option>
-                    <option value="0b0000000100">Праздничные</option>
-                    <option value="0b0000001000">Мужские</option>
-                    <option value="0b0000010000">Детские</option>
-                    <option value="0b0000100000">Муссовые</option>
-                    <option value="0b0001000000">Чизкейки</option>
-                    <option value="0b0010000000">Корпоротивные</option>
-                    <option value="0b0100000000">Для любимых</option>
-                    <option value="0b1000000000">Без темы</option>
+                <select class="selectpicker" name="themes[]" multiple data-live-search="true">
+                    <option value=1>Свадебный</option>
+                    <option value=2>На День Рождения</option>
+                    <option value=4>Праздничные</option>
+                    <option value=8>Мужские</option>
+                    <option value=16>Детские</option>
+                    <option value=32>Муссовые</option>
+                    <option value=64>Чизкейки</option>
+                    <option value=128>Корпоротивные</option>
+                    <option value=256>Для любимых</option>
+                    <option value=0>Без темы</option>
                 </select>
             </div>
         </div>

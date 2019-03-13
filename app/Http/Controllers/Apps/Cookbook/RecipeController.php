@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Apps\Cookbook;
 
 use App\Comments;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RecipeFromRequest;
+//use App\Http\Requests\RecipeFromRequest;
+use App\Theme;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Recipe;
@@ -40,13 +41,15 @@ class RecipeController extends Controller
     }
 
     // Recipes store
-    public function store(RecipeFromRequest $request)
+    public function store(Request $request)
     {
         $recipe = new Recipe();
         $recipe->author_id = Auth::user()->id;
         $recipe->title = $request->get('title');
         $recipe->body = $request->get('body');
-        $recipe->themes = $request->get('themes');
+        $theme = new Theme();
+        $themes = $request->get('themes');
+        $recipe->themes = $theme->makeBitwise($themes);
         $recipe->slug = str_slug($recipe->title);
         if ($request->has('publish_private')) {
             $recipe->privacy = 0;

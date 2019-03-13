@@ -4,12 +4,12 @@
     <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @yield('link')
     <link rel="stylesheet" href="{{url(elixir('fonts/stylesheet.css'))}}">
     <link rel="stylesheet" href="{{url(elixir('css/normalize.css'))}}">
     <link rel="stylesheet" href="{{url(elixir('css/main.css'))}}">
     <script src="https://use.fontawesome.com/aab054733b.js"></script>
     <link href="https://use.fontawesome.com/aab054733b.css" media="all" rel="stylesheet">
-    @yield('link')
 </head>
 <body>
 

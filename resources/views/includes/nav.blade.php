@@ -30,7 +30,11 @@
         <li><a class="header-link" href="/about">О нас</a></li>
         <li class="header-dropdown">
             <a class="header-link header-link-dropdown" href="#">
-                Кабинет
+                @if(Auth::guest())
+                    Кабинет
+                @else
+                    {{ Auth::user()->name }}
+                @endif
             </a>
             <ul class="header-dropdown-menu">
                 @if (Auth::guest())
