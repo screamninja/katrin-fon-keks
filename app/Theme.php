@@ -46,8 +46,11 @@ class Theme extends Model
         return decbin($bin);
     }
 
-    public function makeBitwise(array $bit): int
+    public function makeBitwise(?array $bit): int
     {
+        if ($bit === null) {
+            $bit[] = 0;
+        }
         $bin = array_reduce($bit, function ($x, $y) {
             return $x | $y;
         }, 0);

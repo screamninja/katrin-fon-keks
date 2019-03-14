@@ -59,7 +59,7 @@ class RecipeController extends Controller
             $message = 'Рецепт успешно опубликован!';
         }
         $recipe->save();
-        return redirect('cookbook/edit/' . $recipe->slug)->withMessage($message);
+        return redirect('/' . $recipe->slug)->withMessage($message);
     }
 
     // Show recipe
@@ -99,6 +99,9 @@ class RecipeController extends Controller
             }
             $recipe->title = $title;
             $recipe->body = $request->input('body');
+            $theme = new Theme();
+            $themes = $request->get('themes');
+            $recipe->themes = $theme->makeBitwise($themes);
             if ($request->has('publish_private')) {
                 $recipe->privacy = 0;
                 $message = 'Рецепт успешно сохранён приватно!';

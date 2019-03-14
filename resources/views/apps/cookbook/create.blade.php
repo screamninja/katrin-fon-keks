@@ -38,7 +38,7 @@
         <div class="form-group row">
             <label for="colFormLabel" class="col-3 col-form-label">Выберете тему(ы) для рецепта:</label>
             <div class="col-7">
-                <select class="selectpicker" name="themes[]" multiple data-live-search="true">
+                <select class="selectpicker" name="themes[]" multiple data-live-search="true" data-width="500px">
                     <option value=1>Свадебный</option>
                     <option value=2>На День Рождения</option>
                     <option value=4>Праздничные</option>
@@ -48,19 +48,22 @@
                     <option value=64>Чизкейки</option>
                     <option value=128>Корпоротивные</option>
                     <option value=256>Для любимых</option>
-                    <option value=0>Без темы</option>
                 </select>
             </div>
         </div>
 
         <p>
-            <input type="submit" name='publish' class="btn btn-success" value="Опубликовать"/>
-            <input type="submit" name='publish_private' class="btn btn-success" value="Опубликовать приватно"/>
+            <input type="submit" name='publish' class="btn btn-primary" value="Опубликовать"/>
+            <input type="submit" name='publish_private' class="btn btn-dark" value="Опубликовать приватно"/>
         </p>
     </form>
 
     <script>
-        $('select').selectpicker();
+
+        $('select'). selectpicker({
+            noneSelectedText: 'Без темы'
+        });
+
 
         ClassicEditor
             .create(document.querySelector('#editor'))
