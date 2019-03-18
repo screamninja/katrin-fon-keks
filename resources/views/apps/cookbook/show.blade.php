@@ -36,16 +36,22 @@
 
 @section('content')
 
-    @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
-        <button class="btn"><a
-                    href="{{ url('cookbook/edit/'.$recipe->slug)}}" class="btn btn-info">Редактировать рецепт</a>
-        </button>
-    @endif
-
     @if($recipe)
         <div>
             {!! $recipe->body !!}
         </div><br>
+        <div class="tags">
+            Тема(ы) рецепта:
+            @foreach($themes as $theme)
+                <span class="tag">{{ $theme }}</span>
+            @endforeach
+        </div>
+        @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))
+            <button class="btn"><a
+                        href="{{ url('cookbook/edit/'.$recipe->slug)}}" class="btn btn-info">Редактировать
+                    рецепт</a>
+            </button>
+        @endif
         <div>
             <h2>Комментарии</h2><br>
         </div>

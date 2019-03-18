@@ -36,7 +36,7 @@
                     </div>
                 </div>
             @endif
-        </ul>
+        </div><br>
         <div class="container">
             @if (Session::has('message'))
                 <div class="flash alert-info">

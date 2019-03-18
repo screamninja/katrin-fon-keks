@@ -69,16 +69,28 @@ class RecipeController extends Controller
         if (!$recipe) {
             return redirect('/')->withErrors('Запрошенная страница не найдена!');
         }
+        if ($recipe->themes) {
+            $themeObj = new Theme();
+            $themes = $themeObj->getBitwise($recipe->themes);
+        } else {
+            $themes = ['Без темы'];
+        }
         $comments = $recipe->comments;
-        return view('apps.cookbook.show')->withRecipe($recipe)->withComments($comments);
+        return view('apps.cookbook.show')->withRecipe($recipe)->withThemes($themes)->withComments($comments);
     }
 
     // Edit recipe
     public function edit(Request $request, $slug)
     {
         $recipe = Recipe::where('slug', $slug)->first();
+        if ($recipe->themes) {
+            $themeObj = new Theme();
+            $themes = $themeObj->getBitwise($recipe->themes);
+        } else {
+            $themes = ['Без темы'];
+        }
         if ($recipe && ($request->user()->id === $recipe->author_id || $request->user()->isAdmin()))
-            return view('apps.cookbook.edit')->with('recipe', $recipe);
+            return view('apps.cookbook.edit')->with('recipe', $recipe)->with('themes', $themes);
         return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');
     }
 

@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Config;
 
 class Theme extends Model
 {
+    protected $table = 'themes';
+    public $timestamps = false;
+
     public $themes;
 
     public function __construct(array $attributes = [])
@@ -20,7 +23,7 @@ class Theme extends Model
         return $this->themes;
     }
 
-    public function getBitwise(int $bit): ?array
+    public function getBitwise(array $bit): ?array
     {
         foreach ($this->themes as $binary => $themeName) {
             if ($bit & $binary) {
@@ -46,7 +49,7 @@ class Theme extends Model
         return decbin($bin);
     }
 
-    public function makeBitwise(?array $bit): int
+    public function makeBitwise(?array $bit): string
     {
         if ($bit === null) {
             $bit[] = 0;
@@ -54,6 +57,6 @@ class Theme extends Model
         $bin = array_reduce($bit, function ($x, $y) {
             return $x | $y;
         }, 0);
-        return decbin($bin);
+        return (int)decbin($bin);
     }
 }

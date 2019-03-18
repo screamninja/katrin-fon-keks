@@ -3,7 +3,7 @@
         <li>
             <a class="header-link link-home" href="/">
                 <svg class="header-icon-home">
-                    <use xlink:href="{{ asset('image/svg/symbol-defs.svg#icon-home') }}"/>
+                    <use xlink:href="{{ url('image/svg/symbol-defs.svg#icon-home') }}"/>
                 </svg>
             </a>
         </li>

@@ -37,6 +37,13 @@
             </label><br>
         </div>
 
+        <div class="tags">
+            Тема(ы) рецепта:
+            @foreach($themes as $theme)
+                <span class="tag">{{ $theme }}</span>
+            @endforeach
+        </div><br>
+
         <div class="form-group row">
             <label for="colFormLabel" class="col-3 col-form-label">Выберете тему(ы) для рецепта:</label>
             <div class="col-7">
