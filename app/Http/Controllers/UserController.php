@@ -9,14 +9,14 @@ use App\Recipe;
 class UserController extends Controller
 {
     // Вывод активных рецептов отдельного пользователя
-    public function userRecipes($id)
+    public function userRecipes(int $id)
     {
         $recipes = Recipe::where('author_id', $id)
             ->where('privacy', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(5);
         if (!User::find($id)) {
-            return redirect('/');
+            return redirect('/cookbook');
         }
         $title = User::find($id)->name;
         return view('pages.cookbook')
@@ -24,13 +24,12 @@ class UserController extends Controller
             ->with('title', $title);
     }
 
-    // Вывод всех рецептов отдельного пользователя
+    // Вывод всех рецептов текущего активного пользователя
     public function userRecipesAll(Request $request)
     {
         $user = $request->user();
         $recipes = Recipe::where('author_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->paginate(5);
+            ->orderBy('created_at', 'desc');
         $title = $user->name;
         return view('pages.cookbook')
             ->with('recipes', $recipes)
