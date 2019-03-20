@@ -77,8 +77,9 @@ class RecipeController extends Controller
     public function edit(Request $request, $slug)
     {
         $recipe = Recipe::where('slug', $slug)->first();
+        $tags = $recipe->tags()->orderBy('name')->get();
         if ($recipe && ($request->user()->id === $recipe->author_id || $request->user()->isAdmin()))
-            return view('apps.cookbook.edit')->with('recipe', $recipe);
+            return view('apps.cookbook.edit')->with('recipe', $recipe)->with('tags', $tags);
         return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');
     }
 
@@ -99,9 +100,7 @@ class RecipeController extends Controller
             }
             $recipe->title = $title;
             $recipe->body = $request->input('body');
-            $theme = new Tag();
-            $themes = $request->get('themes');
-            $recipe->themes = $theme->makeBitwise($themes);
+            $tags = $recipe->tags()->orderBy('name')->get();
             if ($request->has('publish_private')) {
                 $recipe->privacy = 0;
                 $message = 'Рецепт успешно сохранён приватно!';
@@ -112,7 +111,7 @@ class RecipeController extends Controller
                 $landing = $recipe->slug;
             }
             $recipe->save();
-            return redirect($landing)->withMessage($message);
+            return redirect($landing)->withTags($tags)->withMessage($message);
         }
 
         return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');

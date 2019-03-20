@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+
         <ul class="list-group">
             <li class="list-group-item">
                 Присоеденился {{$user->created_at->format('d.m.Y в H:i') }}
@@ -58,21 +58,21 @@
                 </table>
             </li>
         </ul>
-    </div>
+
     <div class="panel panel-default">
         <div class="panel-heading"><h3>Мои последние рецепты</h3></div>
         <div class="list-group">
             @if(!empty($latest_recipes[0]))
                 @foreach($latest_recipes as $latest_recipe)
-                    <div class="list-group-item>
+                    <div class="list-group-item">
                         <strong><a href="{{ url('/'.$latest_recipe->slug) }}">{{ $latest_recipe->title }}</a></strong>
-                        <span class="well-sm">от {{ $latest_recipe->created_at->format('d.m.Y в H:i') }}</span>
-                    </div>
-                @endforeach
-            @else
-                <p>У Вас ещё нет рецептов</p>
-            @endif
+                    <span class="well-sm">от {{ $latest_recipe->created_at->format('d.m.Y в H:i') }}</span>
         </div>
+        @endforeach
+        @else
+            <p>У Вас ещё нет рецептов</p>
+        @endif
+    </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading"><h3>Мои последние комментарии</h3></div>
