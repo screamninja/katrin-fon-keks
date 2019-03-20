@@ -25,7 +25,7 @@
 
 @section('title-meta')
     <p>{{ $recipe->created_at->format('M d,Y \a\t h:i a') }} Автор:
-        @if(!Auth::guest() && Auth::user()->canPublish())
+        @if(!Auth::guest() && Auth::user()->isAdmin())
             <a href="{{ url('/user/'.$recipe->author_id)}}" class="badge badge-light">{{ $recipe->author->name }}</a>
         @else
             <a href="{{ url('/user/'.$recipe->author_id.'/recipes')}}"

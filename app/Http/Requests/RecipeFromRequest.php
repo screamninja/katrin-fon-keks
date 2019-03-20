@@ -13,7 +13,7 @@ class RecipeFromRequest extends Request
      */
     public function authorized(): bool
     {
-        if ($this->user()->canPublish()) {
+        if ($this->user()->isAdmin()) {
             return true;
         }
         return false;
@@ -24,7 +24,7 @@ class RecipeFromRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'title' => 'required|unique:recipes|max:255',
