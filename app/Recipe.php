@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Recipe extends Model
 {
-<<<<<<< HEAD
     /**
      * Forbids changing columns
      * @var array
@@ -42,22 +41,5 @@ class Recipe extends Model
     public function comments()
     {
         return $this->hasMany('App\Comments', 'on_recipe');
-=======
-    protected $guarded = [];
-
-    public function author()
-    {
-        return $this->belongsTo('App\User::class', 'author_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany('App\Tag::class')->withTimestamps();
-    }
-
-    public function comments()
-    {
-        return $this->hasMany('App\Comments::class', 'on_recipe');
->>>>>>> origin/master
     }
 }

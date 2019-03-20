@@ -39,8 +39,8 @@
 
         <div class="tags">
             Тема(ы) рецепта:
-            @foreach($themes as $theme)
-                <span class="tag">{{ $theme }}</span>
+            @foreach($tags as $tag)
+                <span class="tag">{{ $tag }}</span>
             @endforeach
         </div><br>
 

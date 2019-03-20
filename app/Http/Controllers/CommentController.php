@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Apps\Cookbook;
+namespace App\Http\Controllers;
 
-use App\Recipe;
 use App\Comments;
-use Redirect;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     public function show()
     {
-        return Comments::all()->take(5);
+        return Comments::all()->orderBy('created_at', 'desc')->paginate(5);
     }
-
     // Comments store.
     public function store(Request $request)
     {
