@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Auth;
 
 /**
  * Main routes
+ *
+ * 1) Home page (GET);
+ * 2) Cookbook page (GET);
+ * 3) About page (GET).
  */
 Route::get('/', 'HomeController@home');
-Route::get('/cookbook', 'Apps\Cookbook\RecipeController@cookbook');
+Route::get('/cookbook', 'RecipeController@cookbook');
 Route::get('/about', 'PagesController@about');
 
 /**
@@ -17,72 +21,72 @@ Auth::routes();
 
 /**
  * Login/Logout routes
+ *
+ * 1) Show login form (GET);
+ * 2) Login (POST);
+ * 3) Logout (GET),
  */
-// Show login form
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-// Login
 Route::post('/login', 'Auth\LoginController@login');
-// Logout
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 /**
  * Registration routes
+ *
+ * 1) Show registration form (GET);
+ * 2) Registration (POST);
+ * 3) Email verification (POST).
  */
-// Show registration form
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Registration
 Route::post('/register', 'Auth\RegisterController@register');
-// Email verification
-//Route::post('/verify', 'Auth\RegisterController@verify');
+Route::post('/verify', 'Auth\RegisterController@verify');
 
 /**
  * Password reset routes
+ *
+ * 1) Send password reset link to user email (POST);
+ * 2) Link to password reset (can be sent by email) (GET);
+ * 3) Show password reset form (GET);
+ * 4) Password reset (POST)/
  */
-// Send password reset link to user email
 Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-// Link to password reset (can be sent by email)
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-// Show password reset form
 Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-// Password reset
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
-if (!Auth::check()) {
-    Route::get('user/{id}', 'UserController@userRecipes')->where('id', '[0-9]+');
-}
+/**
+ * Cookbook routes for guests
+ *
+ * 1) Show recipes list (GET);
+ * 2) Show one recipe (GET).
+ */
+Route::get('user/{id}/recipes', 'UserController@userRecipes')->where('id', '[0-9]+');
+Route::get('/{slug}', ['as' => 'recipe', 'uses' => 'RecipeController@show'])
+    ->where('slug', '[A-Za-z0-9-_]+');
 
 /**
- * Cookbook routes
+ * Cookbook routes (with Auth middleware)
+ *
+ * 1) Show form for new recipe (GET);
+ * 2) Save new recipe (POST);
+ * 3) Edit recipe form (GET);
+ * 4) Update recipe (POST);
+ * 5) Delete recipe (GET);
+ * 6) Show all user recipe (GET);
+ * 7) Show user private recipe (GET);
+ * 8) Add comment (POST);
+ * 9) Delete comment (POST);
+ * 10) Show user profile (GET).
  */
-// Check logged user
 Route::group(['middleware' => ['auth']], function () {
-    // Show new recipe
-    Route::get('cookbook/new-recipe', 'Apps\Cookbook\RecipeController@create');
-    // Save new recipe
-    Route::post('cookbook/new-recipe', 'Apps\Cookbook\RecipeController@store');
-    // Edit recipe
-    Route::get('cookbook/edit/{slug}', 'Apps\Cookbook\RecipeController@edit');
-    // Update recipe
-    Route::post('cookbook/update', 'Apps\Cookbook\RecipeController@update');
-    // Delete recipe
-    Route::get('cookbook/delete/{id}', 'Apps\Cookbook\RecipeController@destroy');
-    // Show all user recipe
+    Route::get('cookbook/new-recipe', 'RecipeController@create');
+    Route::post('cookbook/new-recipe', 'RecipeController@store');
+    Route::get('cookbook/edit/{slug}', 'RecipeController@edit');
+    Route::post('cookbook/update', 'RecipeController@update');
+    Route::get('cookbook/delete/{id}', 'RecipeController@destroy');
     Route::get('cookbook/all-recipes', 'UserController@userRecipesAll');
-    // Show user private recipe
     Route::get('cookbook/my-private-recipes', 'UserController@userPrivateRecipes');
-    // Add comment
-    Route::post('cookbook/comment/add', 'Apps\Cookbook\CommentController@store');
-    // Delete comment
-    Route::post('cookbook/comment/delete/{id}', 'Apps\Cookbook\CommentController@distroy');
-    // Author profiles
+    Route::post('cookbook/comment/add', 'CommentController@store');
+    Route::post('cookbook/comment/delete/{id}', 'CommentController@distroy');
     Route::get('user/{id}', 'UserController@profile')->where('id', '[0-9]+');
 });
-
-/**
- * Cookbook routes for not auth users
- */
-// Show posts list
-Route::get('user/{id}/recipes', 'UserController@userRecipes')->where('id', '[0-9]+');
-// Show one post
-Route::get('/{slug}', ['as' => 'recipe', 'uses' => 'Apps\Cookbook\RecipeController@show'])
-    ->where('slug', '[A-Za-z0-9-_]+');

@@ -42,8 +42,8 @@
         </div><br>
         <div class="tags">
             Тема(ы) рецепта:
-            @foreach($themes as $theme)
-                <span class="tag">{{ $theme }}</span>
+            @foreach($tags as $tag)
+                <span class="tag">{{ $tag }}</span>
             @endforeach
         </div>
         @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))

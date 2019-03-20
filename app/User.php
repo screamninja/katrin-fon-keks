@@ -33,13 +33,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // From one to many user recipe
     public function recipes()
     {
-        return $this->hasMany('App\Recipe', 'author_id');
+        return $this->hasMany('App\Recipe::class', 'author_id');
     }
 
     // From one to many user comments
     public function comments()
     {
-        return $this->hasMany('App\Comments', 'from_user');
+        return $this->hasMany('App\Comments::class', 'from_user');
     }
 
     // Check who can publish

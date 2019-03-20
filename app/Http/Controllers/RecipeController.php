@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Apps\Cookbook;
+namespace App\Http\Controllers;
 
 use App\Comments;
-use App\Http\Controllers\Controller;
 //use App\Http\Requests\RecipeFromRequest;
-use App\Theme;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Recipe;
@@ -47,7 +46,7 @@ class RecipeController extends Controller
         $recipe->author_id = Auth::user()->id;
         $recipe->title = $request->get('title');
         $recipe->body = $request->get('body');
-        $theme = new Theme();
+        $theme = new Tag();
         $themes = $request->get('themes');
         $recipe->themes = $theme->makeBitwise($themes);
         $recipe->slug = str_slug($recipe->title);
@@ -69,14 +68,9 @@ class RecipeController extends Controller
         if (!$recipe) {
             return redirect('/')->withErrors('Запрошенная страница не найдена!');
         }
-        if ($recipe->themes) {
-            $themeObj = new Theme();
-            $themes = $themeObj->getBitwise($recipe->themes);
-        } else {
-            $themes = ['Без темы'];
-        }
+        $tags = $recipe->tags()->orderBy('name')->get();
         $comments = $recipe->comments;
-        return view('apps.cookbook.show')->withRecipe($recipe)->withThemes($themes)->withComments($comments);
+        return view('apps.cookbook.show')->withRecipe($recipe)->withThemes($tags)->withComments($comments);
     }
 
     // Edit recipe
@@ -84,7 +78,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::where('slug', $slug)->first();
         if ($recipe->themes) {
-            $themeObj = new Theme();
+            $themeObj = new Tag();
             $themes = $themeObj->getBitwise($recipe->themes);
         } else {
             $themes = ['Без темы'];
@@ -111,7 +105,7 @@ class RecipeController extends Controller
             }
             $recipe->title = $title;
             $recipe->body = $request->input('body');
-            $theme = new Theme();
+            $theme = new Tag();
             $themes = $request->get('themes');
             $recipe->themes = $theme->makeBitwise($themes);
             if ($request->has('publish_private')) {
