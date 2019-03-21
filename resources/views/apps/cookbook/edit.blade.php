@@ -40,7 +40,7 @@
         <div class="tags">
             Тема(ы) рецепта:
             @foreach($tags as $tag)
-                <span class="tag">{{ $tag }}</span>
+                <span class="tag">{{ $tag['name'] }}</span>
             @endforeach
         </div><br>
 

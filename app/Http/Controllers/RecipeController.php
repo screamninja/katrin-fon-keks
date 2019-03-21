@@ -7,6 +7,7 @@ use App\Comments;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\Recipe;
 
 class RecipeController extends Controller
@@ -19,13 +20,10 @@ class RecipeController extends Controller
         $title = 'Рецепты от Катрин';
         // Take 5 recipes from Db, not private and last
         $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);
-        // Take 5 last comments from Db
-        $comments = Comments::orderBy('created_at', 'desc')->paginate(5);
         // Return cookbook.blade.php from resources/views/pages/cookbook
         return view('pages.cookbook')
             ->withTitle($title)
-            ->withRecipes($recipes)
-            ->withComments($comments);
+            ->withRecipes($recipes);
     }
 
     // Create recipe
@@ -46,9 +44,13 @@ class RecipeController extends Controller
         $recipe->author_id = Auth::user()->id;
         $recipe->title = $request->get('title');
         $recipe->body = $request->get('body');
-        $theme = new Tag();
-        $themes = $request->get('themes');
-        $recipe->themes = $theme->makeBitwise($themes);
+//        $tag = new Tag();
+//        $tags = $request->get('tags');
+//        if (!$tags) {
+//            $tags = 'Без темы';
+//        } else {
+//            $recipe->tags = $tag->makeBitwise($themes);
+//        }
         $recipe->slug = str_slug($recipe->title);
         if ($request->has('publish_private')) {
             $recipe->privacy = 0;
@@ -68,7 +70,7 @@ class RecipeController extends Controller
         if (!$recipe) {
             return redirect('/')->withErrors('Запрошенная страница не найдена!');
         }
-        $tags = $recipe->tags()->orderBy('name')->get();
+        $tags = $recipe->tags()->select('name')->get('name');
         $comments = $recipe->comments()->orderBy('created_at', 'desc');
         return view('apps.cookbook.show')->withRecipe($recipe)->withTags($tags)->withComments($comments);
     }
@@ -79,7 +81,7 @@ class RecipeController extends Controller
         $recipe = Recipe::where('slug', $slug)->first();
         $tags = $recipe->tags()->orderBy('name')->get();
         if ($recipe && ($request->user()->id === $recipe->author_id || $request->user()->isAdmin()))
-            return view('apps.cookbook.edit')->with('recipe', $recipe)->with('tags', $tags);
+            return view('apps.cookbook.edit')->withRecipe($recipe)->withTags($tags);
         return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');
     }
 

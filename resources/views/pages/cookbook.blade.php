@@ -12,6 +12,7 @@
         <div class="container content">Рецептов пока нет...</div>
     @else
         <div class="container content">
+            <h2 style="text-align: center">Рецепты от Катрин фон Кекс</h2>
             @foreach( $recipes as $recipe )
                 <div class="list-group">
                     <div class="list-group-item">
@@ -44,6 +45,7 @@
                 </div>
             @endforeach
             @endif
+                {{ $recipes->links() }}
         </div>
         @include('includes.newitems')
 @endsection

@@ -539,6 +539,16 @@ img {
   margin: 0;
   word-wrap: break-word; }
 
+ul.pagination {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+  text-align: center;
+}
+li.page-item {
+  display: inline;
+}
+
 .page-footer {
   padding: 25px 0;
   background-color: #6C488F;
