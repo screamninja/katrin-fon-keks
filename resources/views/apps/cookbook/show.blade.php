@@ -43,7 +43,7 @@
         <div class="tags">
             Тема(ы) рецепта:
             @foreach($tags as $tag)
-                    <span class="tag">{{ $tag['name'] }}</span>
+                    <span class="tag">{{ $tag->name }}</span>
             @endforeach
         </div>
         @if(!Auth::guest() && ($recipe->author_id === Auth::user()->id || Auth::user()->isAdmin()))

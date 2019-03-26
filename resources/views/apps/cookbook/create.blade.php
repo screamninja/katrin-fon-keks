@@ -39,15 +39,15 @@
             <label for="colFormLabel" class="col-3 col-form-label">Выберете тему(ы) для рецепта:</label>
             <div class="col-7">
                 <select class="selectpicker" name="tags[]" multiple data-live-search="true" data-width="500px">
-                    <option value="Свадебный">Свадебный</option>
-                    <option value="На День Рождения">На День Рождения</option>
-                    <option value="Праздничные">Праздничные</option>
-                    <option value="Мужские">Мужские</option>
-                    <option value="Детские">Детские</option>
-                    <option value="Муссовые">Муссовые</option>
-                    <option value="Чизкейки">Чизкейки</option>
-                    <option value="Корпоротивные">Корпоротивные</option>
-                    <option value="Для любимых">Для любимых</option>
+                    <option value="2">Свадебный</option>
+                    <option value="3">На День Рождения</option>
+                    <option value="4">Праздничные</option>
+                    <option value="5">Мужские</option>
+                    <option value="6">Детские</option>
+                    <option value="7">Муссовые</option>
+                    <option value="8">Чизкейки</option>
+                    <option value="9">Корпоротивные</option>
+                    <option value="10">Для любимых</option>
                 </select>
             </div>
         </div>

@@ -41,22 +41,23 @@
             Тема(ы) рецепта:
             @foreach($tags as $tag)
                 <span class="tag">{{ $tag['name'] }}</span>
+                <span class="tag-id">{{ $tag['id'] }}</span>
             @endforeach
         </div><br>
 
         <div class="form-group row">
             <label for="colFormLabel" class="col-3 col-form-label">Выберете тему(ы) для рецепта:</label>
             <div class="col-7">
-                <select class="selectpicker" name="themes[]" multiple data-live-search="true" data-width="500px">
-                    <option value=1>Свадебный</option>
-                    <option value=2>На День Рождения</option>
-                    <option value=4>Праздничные</option>
-                    <option value=8>Мужские</option>
-                    <option value=16>Детские</option>
-                    <option value=32>Муссовые</option>
-                    <option value=64>Чизкейки</option>
-                    <option value=128>Корпоротивные</option>
-                    <option value=256>Для любимых</option>
+                <select class="selectpicker" name="tags" id="tags" multiple data-live-search="true" data-width="500px">
+                    <option value="2">Свадебный</option>
+                    <option value="3">На День Рождения</option>
+                    <option value="4">Праздничные</option>
+                    <option value="5">Мужские</option>
+                    <option value="6">Детские</option>
+                    <option value="7">Муссовые</option>
+                    <option value="8">Чизкейки</option>
+                    <option value="9">Корпоротивные</option>
+                    <option value="10">Для любимых</option>
                 </select>
             </div>
         </div>
@@ -74,6 +75,11 @@
             $('select'). selectpicker({
                 noneSelectedText: 'Без темы'
             });
+            var tags = $('.tag-id').toArray();
+            $.each(tags, function(i,e){
+                $("select[name=tags]").val('" + e + "');
+            });
+            $('.selectpicker').selectpicker('refresh');
             ClassicEditor
                 .create(document.querySelector('#editor'))
                 .catch(error => {

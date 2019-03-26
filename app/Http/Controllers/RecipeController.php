@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Comments;
 //use App\Http\Requests\RecipeFromRequest;
-use App\Tag;
+//use App\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
+//use Illuminate\Pagination\Paginator;
 use App\Recipe;
 
 class RecipeController extends Controller
@@ -19,7 +19,7 @@ class RecipeController extends Controller
         // Page title
         $title = 'Рецепты от Катрин';
         // Take 5 recipes from Db, not private and last
-        $recipes = Recipe::where('privacy', 1)->orderBy('created_at', 'desc')->paginate(5);
+        $recipes = Recipe::where('privacy', 0)->orderBy('created_at', 'desc')->paginate(5);
         // Return cookbook.blade.php from resources/views/pages/cookbook
         return view('pages.cookbook')
             ->withTitle($title)
@@ -41,47 +41,49 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $recipe = new Recipe();
+
         $recipe->author_id = Auth::user()->id;
         $recipe->title = $request->get('title');
         $recipe->body = $request->get('body');
-//        $tag = new Tag();
-//        $tags = $request->get('tags');
-//        if (!$tags) {
-//            $tags = 'Без темы';
-//        } else {
-//            $recipe->tags = $tag->makeBitwise($themes);
-//        }
+        $recipe->tags = 1;
         $recipe->slug = str_slug($recipe->title);
         if ($request->has('publish_private')) {
-            $recipe->privacy = 0;
+            $recipe->privacy = 1;
             $message = 'Рецепт успешно сохранён приватно!';
         } else {
-            $recipe->privacy = 1;
+            $recipe->privacy = 0;
             $message = 'Рецепт успешно опубликован!';
         }
         $recipe->save();
+        $tags = $request->get('tags');
+        $recipe = Recipe::where('slug', $recipe->slug)->first();
+        if (!$tags) {
+            $recipe->tags()->attach(1);
+        } else {
+            $recipe->tags()->attach($tags);
+        }
         return redirect('/' . $recipe->slug)->withMessage($message);
     }
 
     // Show recipe
     public function show($slug)
     {
-        $recipe = Recipe::where('slug', $slug)->first();
-        if (!$recipe) {
+        $recipe = Recipe::where('slug', $slug)->get();
+        if (!$recipe[0]) {
             return redirect('/')->withErrors('Запрошенная страница не найдена!');
         }
-        $tags = $recipe->tags()->select('name')->get('name');
-        $comments = $recipe->comments()->orderBy('created_at', 'desc');
-        return view('apps.cookbook.show')->withRecipe($recipe)->withTags($tags)->withComments($comments);
+        $tags = $recipe[0]->tags;
+        $comments = $recipe[0]->comments()->orderBy('created_at', 'desc');
+        return view('apps.cookbook.show')->withRecipe($recipe[0])->withTags($tags)->withComments($comments);
     }
 
     // Edit recipe
     public function edit(Request $request, $slug)
     {
-        $recipe = Recipe::where('slug', $slug)->first();
-        $tags = $recipe->tags()->orderBy('name')->get();
-        if ($recipe && ($request->user()->id === $recipe->author_id || $request->user()->isAdmin()))
-            return view('apps.cookbook.edit')->withRecipe($recipe)->withTags($tags);
+        $recipe = Recipe::where('slug', $slug)->get();
+        $tags = $recipe[0]->tags;
+        if ($recipe[0] && ($request->user()->id === $recipe[0]->author_id || $request->user()->isAdmin()))
+            return view('apps.cookbook.edit')->withRecipe($recipe[0])->withTags($tags);
         return redirect('cookbook/')->withErrors('У вас нет достаточных прав!');
     }
 
